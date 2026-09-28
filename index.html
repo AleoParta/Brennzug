@@ -25,10 +25,15 @@
 
   body {
     margin: 0;
-    background-color: var(--bg);
+    background-color: #d9bf88;
     background-image:
-      radial-gradient(ellipse at 50% 0%, #2a1c10 0%, #0c0906 65%),
-      repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+      radial-gradient(ellipse at 50% 35%, rgba(255,242,205,0.55) 0%, transparent 65%),
+      radial-gradient(ellipse at 0% 0%, rgba(110,62,16,0.45) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 0%, rgba(110,62,16,0.40) 0%, transparent 42%),
+      radial-gradient(ellipse at 0% 100%, rgba(110,62,16,0.40) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 100%, rgba(110,62,16,0.50) 0%, transparent 48%),
+      url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='320'%20height='320'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.035%200.05'%20numOctaves='4'%20seed='7'/%3E%3CfeColorMatrix%20values='0%200%200%200%200.42%20%200%200%200%200%200.27%20%200%200%200%200%200.1%20%200%200%200%200.75%200'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url%28%23n%29'/%3E%3C/svg%3E");
+    background-attachment: fixed;
     color: var(--text);
     font-family: Cambria, Georgia, "Times New Roman", serif;
     font-size: 14px;
@@ -135,25 +140,38 @@
   .nav .maxw {
     display: flex;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
+    padding: 9px 16px;
     flex-wrap: wrap;
   }
   .nav a {
     display: block;
-    padding: 10px 16px;
-    font-size: 12px;
+    padding: 7px 18px 8px;
+    font-family: "Friz Quadrata TT", "Friz Quadrata", Cambria, Georgia, serif;
+    font-size: 13px;
     font-weight: bold;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: var(--text-dim2);
-    border-left: 1px solid rgba(232,200,118,0.15);
+    letter-spacing: 0.3px;
+    color: #ffd100;
+    text-shadow: 1px 1px 0 #000;
+    background: linear-gradient(180deg, #a52323 0%, #6e1010 48%, #4a0808 52%, #6a1212 100%);
+    border: 2px solid #c9a23a;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 0 rgba(255,220,160,0.45), inset 0 0 0 1px rgba(0,0,0,0.7), 0 2px 3px rgba(0,0,0,0.6);
+    cursor: pointer;
   }
-  .nav a:first-child { border-left: none; }
   .nav a:hover {
-    color: var(--gold-bright);
-    background: rgba(232,200,118,0.08);
+    color: #fff;
+    filter: brightness(1.3);
     text-decoration: none;
   }
+  .nav a:active {
+    padding: 8px 18px 7px;
+    color: #e0b800;
+    filter: none;
+    background: linear-gradient(180deg, #4a0808, #6e1010);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(0,0,0,0.7);
+  }
+  .nav a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
   /* ornate panel */
   .panel {
@@ -470,6 +488,64 @@
     text-transform:uppercase;
     letter-spacing:1px;
   }
+
+  /* parchment: dark text outside the dark panels */
+  .guildname {
+    background: linear-gradient(180deg, #6b3a0c, #3d1f06 60%, #2a1504);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 1px 0 rgba(255,240,200,0.6));
+  }
+  .guildname .br { color: #8a4a10; -webkit-text-fill-color: #8a4a10; }
+  .realm-faction, .motto, .ticker { color: #4a3820; }
+  .realm-faction .alliance { color: #1a4f8f; font-weight: bold; }
+  .ticker b, .loading-tip b { color: #6b3a08; }
+  .loading-tip { color: #4a3820; background: rgba(255,240,200,0.3); border-color: #8a6a1f; }
+  .copyright, .copyright .old-school { color: #4a3820; }
+  footer a { color: #6b3a08; }
+
+  /* hero */
+  .hero { padding: 6px; margin: 22px 0; }
+  .hero .guild-photo { border: none; box-shadow: none; max-height: 460px; object-fit: cover; }
+  .hero-shade {
+    position: absolute; inset: 6px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.75));
+  }
+  .hero-title {
+    position: absolute; left: 6px; right: 6px; bottom: 6px;
+    margin: 0; padding: 0 16px 22px;
+    text-align: center;
+    font-family: "Friz Quadrata TT", "Friz Quadrata", Cambria, Georgia, serif;
+    font-size: clamp(30px, 7vw, 64px);
+    font-weight: bold; letter-spacing: 2px; line-height: 1.1;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 0 #000, 0 0 14px rgba(0,0,0,0.9), 0 0 30px rgba(232,150,40,0.35);
+  }
+
+  /* raid progress */
+  .raidbar {
+    position: relative; height: 30px; overflow: hidden;
+    background: #0a0603;
+    border: 2px solid var(--gold-dark); border-radius: 3px;
+    box-shadow: inset 0 0 6px #000, 0 0 0 1px #000;
+  }
+  .raidbar .fill {
+    height: 100%; width: 66.667%;
+    background: linear-gradient(180deg, #ff9a3c, #e2551a 45%, #a82a08 55%, #7a1c04);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  .raidbar .seg {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12));
+  }
+  .raidbar .label {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 13px; color: #fff; text-shadow: 1px 1px 0 #000, 0 0 4px #000;
+  }
+  .raid-caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--text-dim2); }
+  .raid-caption b { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -505,9 +581,20 @@
 
   <div class="maxw">
 
-    <div class="panel" id="gilde">
-      <h2><span class="icon">📜</span>Gildenbeschreibung</h2>
-      <p class="lede">Willkommen in der Gildenhalle von <b>Vom Kreuzenden Brennzug</b>. Wir sind eine 30 Mann RP Gilde. Im Mittelpunkt stehen gemeinsame Raids, zuverlässige Termine und eine angenehme Gemeinschaft. Bei aller Ernsthaftigkeit darf der Spaß natürlich nicht fehlen. Neue Mitglieder werden nach Möglichkeit direkt ins Geschehen eingebunden.</p>
+    <div class="panel hero" id="gilde">
+      <img class="guild-photo" src="gildenfoto.jpg" alt="Vom Kreuzenden Brennzug">
+      <div class="hero-shade"></div>
+      <h1 class="hero-title">Herzlich Willkommen</h1>
+    </div>
+
+    <div class="panel" id="progress">
+      <h2><span class="icon">🔥</span>Raid-Fortschritt &mdash; Molten Core</h2>
+      <div class="raidbar" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="8" aria-label="Molten Core Fortschritt">
+        <div class="fill"></div>
+        <div class="seg"></div>
+        <div class="label">8 / 12 Bosse besiegt</div>
+      </div>
+      <div class="raid-caption"><span>Molten Core</span><span>Aktueller Boss: <b>Golemagg</b></span></div>
     </div>
 
     <div class="ticker"><b>Ladebildschirm-Tipp:</b> Ein guter Raid beginnt mit einem guten Plan. Ein sehr guter Raid beginnt damit, dass alle im TeamSpeak sind.</div>
@@ -936,13 +1023,6 @@
       <div class="gb-entry"><span class="gb-name">Nephis</span><span class="gb-time">vor 2 Stunden</span><br>GIGA GEILE SCHLANGEN!!! <3 !!!</div>
     </div>
 
-  </div>
-
-  <div class="maxw" style="margin:18px auto;">
-    <div class="panel" id="gildenbild">
-      <h2><span class="icon">📸</span>Die Gilde</h2>
-      <img class="guild-photo" src="gildenfoto.jpg" alt="Vom Kreuzenden Brennzug">
-    </div>
   </div>
 
   <footer>
