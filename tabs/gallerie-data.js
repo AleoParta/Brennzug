@@ -1,57 +1,5 @@
 window.GALLERY_DATA = [
  {
-  "file": "2026-10-06 21_56_50-World Of Warcraft - Classic 2020.09.26 - 02.08.08.01.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_00_33-C_Thun.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_01_49-silithus_farm(2).mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_04_05-silithus_farm_12.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_04_37-silithus_farm_12.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_06_00-silithus_farm_12.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_06_44-Ulfs Mount Silithus.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_07_20-Ulfs Mount Silithus.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_08_14-walt_zaubershow_demo.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_13_27-Medienwiedergabe.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_24_46-Keda_Epic_Mount.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_27_27-tiefenbahn.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
-  "file": "2026-10-06 22_31_36-World Of Warcraft - Classic 2020.10.02 - 15.25.34.01.mp4 - VLC media player.png",
-  "date": "2026-10-06T23:49:54"
- },
- {
   "file": "naxxkill.jpg",
   "date": "2026-10-06T19:47:07"
  },
@@ -108,8 +56,16 @@ window.GALLERY_DATA = [
   "date": "2020-12-13T19:46:47"
  },
  {
+  "file": "WoWScrnShot_092620_210000.jpg.png",
+  "date": "2020-09-26T21:00:00"
+ },
+ {
   "file": "WoWScrnShot_082320_222804.jpg",
   "date": "2020-08-23T22:28:04"
+ },
+ {
+  "file": "WoWScrnShot_081020_213338.png",
+  "date": "2020-08-10T21:33:38"
  },
  {
   "file": "WoWScrnShot_081020_213337.jpg",
@@ -130,6 +86,22 @@ window.GALLERY_DATA = [
  {
   "file": "WoWScrnShot_073020_165428.jpg",
   "date": "2020-07-30T16:54:28"
+ },
+ {
+  "file": "WoWScrnShot_072520_210002.jpg.png",
+  "date": "2020-07-25T21:00:02"
+ },
+ {
+  "file": "WoWScrnShot_072520_210000.jpg.png",
+  "date": "2020-07-25T21:00:00"
+ },
+ {
+  "file": "WoWScrnShot_071920_210000.jpg.png",
+  "date": "2020-07-19T21:00:00"
+ },
+ {
+  "file": "WoWScrnShot_071020_210001.jpg.png",
+  "date": "2020-07-10T21:00:01"
  },
  {
   "file": "WoWScrnShot_063020_234917.jpg",
@@ -156,8 +128,16 @@ window.GALLERY_DATA = [
   "date": "2020-05-06T01:24:55"
  },
  {
+  "file": "WoWScrnShot_042820_225629.png",
+  "date": "2020-04-28T22:56:29"
+ },
+ {
   "file": "WoWScrnShot_042620_201438.jpg",
   "date": "2020-04-26T20:14:38"
+ },
+ {
+  "file": "WoWScrnShot_042420_225629.png",
+  "date": "2020-04-24T22:56:29"
  },
  {
   "file": "WoWScrnShot_041920_081435.jpg",
@@ -176,11 +156,35 @@ window.GALLERY_DATA = [
   "date": "2020-04-04T01:36:07"
  },
  {
+  "file": "WoWScrnShot_033120_213009.jpg",
+  "date": "2020-03-31T21:30:09"
+ },
+ {
+  "file": "WoWScrnShot_032720_225629.png",
+  "date": "2020-03-27T22:56:29"
+ },
+ {
   "file": "WoWScrnShot_030420_194057.jpg",
   "date": "2020-03-04T19:40:57"
  },
  {
+  "file": "WoWScrnShot_030220_011304.jpg",
+  "date": "2020-03-02T01:13:04"
+ },
+ {
+  "file": "WoWScrnShot_022420_225629.png",
+  "date": "2020-02-24T22:56:29"
+ },
+ {
+  "file": "WoWScrnShot_022320_215147.jpg",
+  "date": "2020-02-23T21:51:47"
+ },
+ {
   "file": "WoWScrnShot_021620_225629.jpg",
+  "date": "2020-02-16T22:56:29"
+ },
+ {
+  "file": "WoWScrnShot_021620_225629.png",
   "date": "2020-02-16T22:56:29"
  },
  {
@@ -212,8 +216,20 @@ window.GALLERY_DATA = [
   "date": "2020-01-04T02:27:29"
  },
  {
+  "file": "WoWScrnShot_122619_221300.jpg",
+  "date": "2019-12-26T22:13:00"
+ },
+ {
+  "file": "WoWScrnShot_121219_205218.jpg",
+  "date": "2019-12-12T20:52:18"
+ },
+ {
   "file": "WoWScrnShot_121019_213341.jpg",
   "date": "2019-12-10T21:33:41"
+ },
+ {
+  "file": "WoWScrnShot_120119_183958.jpg",
+  "date": "2019-12-01T18:39:58"
  },
  {
   "file": "WoWScrnShot_111019_221225.jpg",
