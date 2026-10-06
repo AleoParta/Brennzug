@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>&lt;Vom Kreuzenden Brennzug&gt; – Mitglieder</title>
+
+<style>
+:root{--gold:#e8c876;--gold-bright:#ffe9a8;--gold-dark:#8a6a1f;--parchment:#2a1d12;--parchment-2:#3a2817;--text:#d8c8a6;--text-dim2:#9a8666}
+*{box-sizing:border-box}body{margin:0;background-color:#d9bf88;background-image:radial-gradient(ellipse at 50% 35%,rgba(255,242,205,.55),transparent 65%),radial-gradient(ellipse at 0 0,rgba(110,62,16,.45),transparent 45%),radial-gradient(ellipse at 100% 0,rgba(110,62,16,.4),transparent 42%),radial-gradient(ellipse at 0 100%,rgba(110,62,16,.4),transparent 45%),radial-gradient(ellipse at 100% 100%,rgba(110,62,16,.5),transparent 48%);background-attachment:fixed;color:var(--text);font-family:Cambria,Georgia,"Times New Roman",serif;font-size:14px}.maxw{max-width:980px;margin:auto;padding:0 16px}a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-bright);text-decoration:underline}
+.realmbar{background:#000;border-bottom:1px solid #3a2a12;font-size:10.5px;color:#8a7a5a;letter-spacing:.5px}.realmbar .maxw{display:flex;justify-content:space-between;padding:5px 16px}
+.banner{padding:34px 16px 26px;text-align:center;background:radial-gradient(ellipse at 50% -10%,rgba(36,90,154,.35),transparent 60%);border-bottom:3px double var(--gold-dark)}.crest{width:88px;height:88px;margin:0 auto 10px;border-radius:50%;background:#1a1006;border:3px solid var(--gold);overflow:hidden}.crest img{width:100%;height:100%;object-fit:cover}.guildname{font-size:40px;font-weight:bold;letter-spacing:1px;color:#4a2608;text-shadow:0 1px 0 rgba(255,240,200,.6)}.guildname .br{color:#8a4a10}.realm-faction{font-size:12px;color:#4a3820;letter-spacing:2px;text-transform:uppercase;margin-top:4px}.alliance{color:#1a4f8f;font-weight:bold}.motto{margin:14px auto 0;max-width:520px;font-style:italic;font-size:13px;color:#4a3820;line-height:1.6}
+.nav{background:linear-gradient(180deg,var(--parchment-2),var(--parchment));border-bottom:2px solid var(--gold-dark);border-top:1px solid #5a4020}.nav .maxw{display:flex;justify-content:center;gap:6px;padding:9px 16px;flex-wrap:wrap}.nav a{display:block;padding:7px 18px 8px;font-size:13px;font-weight:bold;color:#ffd100;text-shadow:1px 1px #000;background:linear-gradient(180deg,#a52323,#6e1010 48%,#4a0808 52%,#6a1212);border:2px solid #c9a23a;border-radius:5px;box-shadow:inset 0 1px rgba(255,220,160,.45),0 2px 3px rgba(0,0,0,.6)}.nav a:hover,.nav .active{color:#fff;filter:brightness(1.25);text-decoration:none}
+.panel{position:relative;background:linear-gradient(180deg,var(--parchment-2),var(--parchment));border:2px solid var(--gold-dark);box-shadow:inset 0 0 0 1px rgba(232,200,118,.25),0 4px 14px rgba(0,0,0,.4);border-radius:3px;margin:22px 0;padding:20px 22px}.panel:before,.panel:after{content:"◆";position:absolute;color:var(--gold);font-size:12px;top:-8px}.panel:before{left:-8px}.panel:after{right:-8px}.panel h2{margin:0 0 14px;font-size:19px;letter-spacing:1px;color:var(--gold-bright);border-bottom:1px solid rgba(232,200,118,.25);padding-bottom:8px}.lede{font-size:13.5px;line-height:1.7}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.featured{padding:14px;border:1px solid rgba(232,200,118,.18);background:rgba(0,0,0,.14);min-height:155px}.featured:hover{background:rgba(232,200,118,.05)}.featured-head{display:flex;align-items:center;gap:12px;margin-bottom:9px}.featured img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-dark);box-shadow:0 0 0 1px #000}.featured-name{font-size:15px;font-weight:bold}.featured-meta,.member-class{font-size:10px;color:var(--text-dim2);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}.featured-quote{font-size:11.5px;color:#8a7a5a;font-style:italic;line-height:1.5;border-top:1px solid rgba(232,200,118,.1);padding-top:8px}.online-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 4px #4caf50;margin-right:5px}
+.member-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 22px}.member-row{display:flex;align-items:flex-start;gap:12px;padding:9px 6px;border-bottom:1px solid rgba(232,200,118,.1)}.member-row:hover{background:rgba(232,200,118,.05)}.member-row img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-dark);box-shadow:0 0 0 1px #000}.member-name{font-size:13.5px;font-weight:bold}.member-info{flex:1;min-width:0}.member-quote{font-size:11.5px;color:#8a7a5a;font-style:italic;line-height:1.5;min-height:1.5em;margin-top:3px}
+.c-krieger{color:#c79c6e}.c-magier{color:#69ccf0}.c-druide{color:#ff7d0a}.c-hexer{color:#a89be0}.c-paladin{color:#f58cba}.c-priester{color:#fff}.c-schurke{color:#fff569}.c-schamane{color:#3b8ef0}.c-jaeger{color:#abd473}.c-todesritter{color:#e0384f}
+footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;margin:0 auto 16px;border:1px solid var(--gold-dark);padding:10px 16px;font-size:11.5px;font-style:italic;color:#4a3820;background:rgba(255,240,200,.3)}.loading-tip b{color:#6b3a08}.copyright{font-size:10px;color:#4a3820;line-height:1.8}
+@media(max-width:680px){.guildname{font-size:28px}.featured-grid,.member-list{grid-template-columns:1fr}.realmbar .maxw{flex-direction:column;gap:3px}}
+</style>
+
+</head>
+<body>
+<div class="realmbar"><div class="maxw"><span><span class="online-dot"></span>Realm: Forever — Online</span><span>Fraktion: Allianz · Spielerzahl: 84 Mitglieder</span></div></div>
+<div class="banner">
+  <div class="crest"><img src="../media/gildenlogo.png" alt="Gildenlogo"></div>
+  <div class="guildname"><span class="br">&lt;</span>Vom Kreuzenden Brennzug<span class="br">&gt;</span></div>
+  <div class="realm-faction"><span class="alliance">Allianz</span> · PvP-Raidgilde · Stufe 60 · 84 Mitglieder</div>
+  <p class="motto">"Gemeinsam raiden. Gemeinsam wachsen. Gemeinsam durchhalten." — Gildenmotto</p>
+</div>
+<div class="nav"><div class="maxw">
+  <a href="../index.html">Gildenhalle</a><a href="./" class="active">Mitglieder</a><a href="gallerie.html">Gallerie</a>
+  <a href="../index.html#news">News</a><a href="../index.html#erfolge">Erfolge</a><a href="../index.html#fahrplan">Raids</a>
+  <a href="../index.html#protokoll">Raidprotokoll</a><a href="../index.html#loot">Beute</a><a href="../index.html#regeln">Regeln</a>
+  <a href="../index.html#musik">Musik</a><a href="../index.html#gaestebuch">Gästebuch</a>
+</div></div>
+<div class="maxw">
+  <div class="panel"><h2>⚔️ Gildenmitglieder</h2><p class="lede">Die Mannschaft des Vom Kreuzenden Brennzug. Einige stehen im Rampenlicht, der Rest hält den Zug am Laufen.</p></div>
+  <div class="panel">
+    <h2>⭐ Mannschaft des Tages</h2>
+    <div class="featured-grid">
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/parta.png" alt="Parta">
+          <div><div class="featured-name c-krieger"><span class="online-dot"></span>Parta</div><div class="featured-meta">Krieger · Tank · Gildenleiter · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Meistens anzutreffen an seiner Farm im Wald von Elwynn, Altschauerberg 8</div>
+      </div>
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/walt.png" alt="Walt">
+          <div><div class="featured-name c-magier"><span class="online-dot"></span>Walt</div><div class="featured-meta">Magier · Frostmage · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Hat für jedes Problem mindestens ein Blinzeln und für jede Besprechung mindestens eine Meinung.</div>
+      </div>
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/ulf.png" alt="Ulf">
+          <div><div class="featured-name c-krieger"><span class="online-dot"></span>Ulf</div><div class="featured-meta">Krieger · Fury · Nahkampf-Schaden · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Seitdem WeakAuras entfernt wurden der offiziell beste Spieler der Gilde</div>
+      </div>
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/gnome.png" alt="Kasabian">
+          <div><div class="featured-name c-hexer"><span class="online-dot"></span>Kasabian</div><div class="featured-meta">Hexenmeister · Fernkampf-Schaden · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Kannst du mir einmal klicken helfen?</div>
+      </div>
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/livic.png" alt="Livic">
+          <div><div class="featured-name c-hexer"><span class="online-dot"></span>Livic</div><div class="featured-meta">Hexenmeister · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Zitat folgt.</div>
+      </div>
+      <div class="featured">
+        <div class="featured-head">
+          <img src="../media/profile/laenaia.png" alt="Laenaia">
+          <div><div class="featured-name c-priester"><span class="online-dot"></span>Laenaia</div><div class="featured-meta">Priester · Heiler · Protokollant · Lv. 60</div></div>
+        </div>
+        <div class="featured-quote">Dokumentiert jeden Raid. Einschließlich Dinge, die die Beteiligten lieber vergessen würden.</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>📋 Alle Mitglieder</h2>
+    <p class="lede">Alphabetisch nach Charaktername sortiert.</p>
+    <div class="member-list">
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Adreo">
+        <div class="member-info"><div class="member-name c-krieger">Adreo</div><div class="member-class">Krieger</div><div class="member-quote">Alt + Ü</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Alenia">
+        <div class="member-info"><div class="member-name c-magier">Alenia</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/andalf.png" alt="Andalf">
+        <div class="member-info"><div class="member-name c-priester">Andalf</div><div class="member-class">Priester</div><div class="member-quote">Ulf hat mein Bett geklaut</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Arthur">
+        <div class="member-info"><div class="member-name c-krieger">Arthur</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Asunasun">
+        <div class="member-info"><div class="member-name c-schurke">Asunasun</div><div class="member-class">Schurke</div><div class="member-quote">Arms aus Überzeugung</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Boyd">
+        <div class="member-info"><div class="member-name c-jaeger">Boyd</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Carabina">
+        <div class="member-info"><div class="member-name c-magier">Carabina</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Egge">
+        <div class="member-info"><div class="member-name c-jaeger">Egge</div><div class="member-class">Jäger</div><div class="member-quote">Irgendwas mit Motorrad</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Entwürdiger">
+        <div class="member-info"><div class="member-name c-magier">Entwürdiger</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Eqi">
+        <div class="member-info"><div class="member-name c-krieger">Eqi</div><div class="member-class">Krieger</div><div class="member-quote">Teil einer riesigen Throne &amp; Liberty Verschwörung</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/foory.png" alt="Foory">
+        <div class="member-info"><div class="member-name c-krieger">Foory</div><div class="member-class">Krieger</div><div class="member-quote">War schon Rank 10 als die Schriftrollen geschrieben wurden</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Gabbagandalf">
+        <div class="member-info"><div class="member-name c-magier">Gabbagandalf</div><div class="member-class">Magier</div><div class="member-quote">VKB auf Haut und Blut</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Galaxypumper">
+        <div class="member-info"><div class="member-name c-hexer">Galaxypumper</div><div class="member-class">Hexenmeister</div><div class="member-quote">Insanely dog</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Ganoez">
+        <div class="member-info"><div class="member-name c-druide">Ganoez</div><div class="member-class">Druide</div><div class="member-quote">Bitte hört auf mich Ganoez zu nennen</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Herrod">
+        <div class="member-info"><div class="member-name c-paladin">Herrod</div><div class="member-class">Paladin</div><div class="member-quote">Das Anrecht vom ersten Val&#x27;anyr wurde ihm geklaut</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Hesker">
+        <div class="member-info"><div class="member-name c-krieger">Hesker</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Hololo">
+        <div class="member-info"><div class="member-name c-priester">Hololo</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Holychie">
+        <div class="member-info"><div class="member-name c-schamane">Holychie</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Huelya">
+        <div class="member-info"><div class="member-name c-druide">Huelya</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Jaegermeister">
+        <div class="member-info"><div class="member-name c-jaeger">Jaegermeister</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Kasabian">
+        <div class="member-info"><div class="member-name c-hexer">Kasabian</div><div class="member-class">Hexenmeister</div><div class="member-quote">Kannst du mir einmal klicken helfen?</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Keda">
+        <div class="member-info"><div class="member-name c-paladin">Keda</div><div class="member-class">Paladin</div><div class="member-quote">Retri Paladin mit muskulösen Beinen</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Kodokiller">
+        <div class="member-info"><div class="member-name c-jaeger">Kodokiller</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Kruzux">
+        <div class="member-info"><div class="member-name c-hexer">Kruzux</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Laenaia">
+        <div class="member-info"><div class="member-name c-priester">Laenaia</div><div class="member-class">Priester</div><div class="member-quote">Bin mal kurz Zähne putzen</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/livic.png" alt="Livic">
+        <div class="member-info"><div class="member-name c-hexer">Livic</div><div class="member-class">Hexenmeister</div><div class="member-quote">Sachbearbeiter für Kummerkasteneinträge</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Lora">
+        <div class="member-info"><div class="member-name c-jaeger">Lora</div><div class="member-class">Jäger</div><div class="member-quote">Wurde gebannt, weil er zu gut angeln kann</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Lotusblyat">
+        <div class="member-info"><div class="member-name c-priester">Lotusblyat</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Luneria">
+        <div class="member-info"><div class="member-name c-druide">Luneria</div><div class="member-class">Druide</div><div class="member-quote">Eule AoE Taunt</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Maoux">
+        <div class="member-info"><div class="member-name c-hexer">Maoux</div><div class="member-class">Hexenmeister</div><div class="member-quote">LC bitte runter</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Maxvbaden">
+        <div class="member-info"><div class="member-name c-hexer">Maxvbaden</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/merray.png" alt="Merray">
+        <div class="member-info"><div class="member-name c-schurke">Merray</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Mettonio">
+        <div class="member-info"><div class="member-name c-magier">Mettonio</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Minzblyat">
+        <div class="member-info"><div class="member-name">Minzblyat</div><div class="member-class">?</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Muffli">
+        <div class="member-info"><div class="member-name c-schurke">Muffli</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Nazarak">
+        <div class="member-info"><div class="member-name c-jaeger">Nazarak</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Necrofizzle">
+        <div class="member-info"><div class="member-name c-hexer">Necrofizzle</div><div class="member-class">Hexenmeister</div><div class="member-quote">Hat die heißeste Nudeln</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Neosora">
+        <div class="member-info"><div class="member-name c-hexer">Neosora</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Nephis">
+        <div class="member-info"><div class="member-name c-magier">Nephis</div><div class="member-class">Magier</div><div class="member-quote">GIGA GEILE SCHLANGEN!</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/newgate.png" alt="Newgate">
+        <div class="member-info"><div class="member-name c-magier">Newgate</div><div class="member-class">Magier</div><div class="member-quote">Weiß wann man die Fresse halten soll</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/ulf.png" alt="Nichtulf">
+        <div class="member-info"><div class="member-name c-krieger">Nichtulf</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Nylani">
+        <div class="member-info"><div class="member-name c-druide">Nylani</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="OneTrueMorty">
+        <div class="member-info"><div class="member-name c-druide">OneTrueMorty</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Paranoida">
+        <div class="member-info"><div class="member-name c-schurke">Paranoida</div><div class="member-class">Schurke</div><div class="member-quote">You want Toxanna? Best I can do is Toxana</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/parta.png" alt="Parta">
+        <div class="member-info"><div class="member-name c-krieger">Parta</div><div class="member-class">Krieger</div><div class="member-quote">Ich weiß es nicht, ich habe mich verlaufen.</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Penjadri">
+        <div class="member-info"><div class="member-name c-jaeger">Penjadri</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Pipa">
+        <div class="member-info"><div class="member-name c-paladin">Pipa</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/pogge.png" alt="Poggenburg">
+        <div class="member-info"><div class="member-name c-krieger">Poggenburg</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Raigor">
+        <div class="member-info"><div class="member-name c-hexer">Raigor</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Razyell">
+        <div class="member-info"><div class="member-name c-druide">Razyell</div><div class="member-class">Druide</div><div class="member-quote">Unglaublich schneller Baum</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Rodranon">
+        <div class="member-info"><div class="member-name c-paladin">Rodranon</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Rower">
+        <div class="member-info"><div class="member-name c-schurke">Rower</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/sacre.png" alt="Sacre">
+        <div class="member-info"><div class="member-name c-paladin">Sacre</div><div class="member-class">Paladin</div><div class="member-quote">Dieser Anglerfisch ist nicht zum Verzehr geeignet.</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Saphiria">
+        <div class="member-info"><div class="member-name c-jaeger">Saphiria</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Schlepper">
+        <div class="member-info"><div class="member-name c-druide">Schlepper</div><div class="member-class">Druide</div><div class="member-quote">Einen Schlepper benched man nicht.</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Schury">
+        <div class="member-info"><div class="member-name c-magier">Schury</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Scyze">
+        <div class="member-info"><div class="member-name c-magier">Scyze</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Semml">
+        <div class="member-info"><div class="member-name c-magier">Semml</div><div class="member-class">Magier</div><div class="member-quote">Wenn das kein Hochdeutsch ist, dann weiß ich auch nicht</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Shindly">
+        <div class="member-info"><div class="member-name c-paladin">Shindly</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/shivz.png" alt="Shivz">
+        <div class="member-info"><div class="member-name c-druide">Shivz</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Shoyo">
+        <div class="member-info"><div class="member-name c-jaeger">Shoyo</div><div class="member-class">Jäger</div><div class="member-quote">Dieses Hurensohngame</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Sie">
+        <div class="member-info"><div class="member-name c-krieger">Sie</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Sirion">
+        <div class="member-info"><div class="member-name c-priester">Sirion</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Synkuxia">
+        <div class="member-info"><div class="member-name c-paladin">Synkuxia</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Tamar">
+        <div class="member-info"><div class="member-name c-priester">Tamar</div><div class="member-class">Priester</div><div class="member-quote">Ich habe keine Ahnung wo du hinläufst Ganoes, aber es ist auf jeden Fall falsch</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Taral">
+        <div class="member-info"><div class="member-name c-priester">Taral</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Tastybread">
+        <div class="member-info"><div class="member-name c-magier">Tastybread</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Thabatia">
+        <div class="member-info"><div class="member-name c-druide">Thabatia</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/thomschi.png" alt="Thomschi">
+        <div class="member-info"><div class="member-name c-schamane">Thomschi</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Trabbi">
+        <div class="member-info"><div class="member-name c-todesritter">Trabbi</div><div class="member-class">Todesritter</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Travox">
+        <div class="member-info"><div class="member-name c-jaeger">Travox</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Türyon">
+        <div class="member-info"><div class="member-name c-paladin">Türyon</div><div class="member-class">Paladin</div><div class="member-quote">Diese Käfer! Ich kann das alles nicht mehr!</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/venti.png" alt="Ventilator">
+        <div class="member-info"><div class="member-name c-schurke">Ventilator</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/walt.png" alt="Walt">
+        <div class="member-info"><div class="member-name c-magier">Walt</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Winnior">
+        <div class="member-info"><div class="member-name c-krieger">Winnior</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Winterelch">
+        <div class="member-info"><div class="member-name c-krieger">Winterelch</div><div class="member-class">Krieger</div><div class="member-quote">macht immer ein doppeltes X</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Xalita">
+        <div class="member-info"><div class="member-name c-paladin">Xalita</div><div class="member-class">Paladin</div><div class="member-quote">Ich habe noch nie seine Stimme gehört.</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/draenai.png" alt="Xenovia">
+        <div class="member-info"><div class="member-name c-schamane">Xenovia</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/draenai.png" alt="Xynamite">
+        <div class="member-info"><div class="member-name c-schamane">Xynamite</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Yuga">
+        <div class="member-info"><div class="member-name c-hexer">Yuga</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Yulivee">
+        <div class="member-info"><div class="member-name c-priester">Yulivee</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Zaaria">
+        <div class="member-info"><div class="member-name c-jaeger">Zaaria</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/draenai.png" alt="Zackery">
+        <div class="member-info"><div class="member-name c-schamane">Zackery</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/draenai.png" alt="Zyler">
+        <div class="member-info"><div class="member-name c-schamane">Zyler</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="loading-tip"><b>Wusstest du schon?</b> Unsere Gilde hat mehr Verspätungen als Erfolge — und das will bei uns etwas heißen.</div>
+  <div class="copyright">© Vom Kreuzenden Brennzug — Alle Rechte vorbehalten.<br>
+  World of Warcraft® ist eine eingetragene Marke von Blizzard Entertainment. Diese Seite ist eine inoffizielle Fanseite.<br>
+  Best viewed at 1024×768 · Webmaster Partah mit H · Besucher: 000471 · <a href="../index.html">Zur Gildenhalle</a></div>
+</footer>
+</body>
+</html>
