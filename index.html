@@ -546,6 +546,31 @@
   }
   .raid-caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--text-dim2); }
   .raid-caption b { color: var(--gold); }
+
+  /* Discord-Link */
+  .discord-wrap { margin: 14px 0 0 0; }
+  .discord-link {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 7px 16px; border: 2px solid var(--gold-dark); border-radius: 4px;
+    background: linear-gradient(180deg, #4752c4, #3a44a8); color: #fff;
+    font-size: 13px; font-weight: bold; text-shadow: 1px 1px #000;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), 0 2px 6px rgba(0,0,0,0.5);
+  }
+  .discord-link:hover { color: #fff; text-decoration: none; filter: brightness(1.15); border-color: var(--gold); }
+  .discord-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .discord-link svg { width: 22px; height: 22px; fill: #fff; flex: none; }
+
+  /* Forever-Countdown */
+  .cd-wrap { text-align: center; }
+  .cd-title { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim2); margin-bottom: 12px; }
+  .cd-title b { color: var(--gold-bright); }
+  .cd-boxes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .cd-box { min-width: 76px; padding: 10px 8px 8px; background: #1a1006; border: 2px solid var(--gold-dark); border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(232,200,118,0.2); }
+  .cd-num { display: block; font-size: 32px; font-weight: bold; line-height: 1; color: var(--gold-bright); text-shadow: 0 1px 0 #000; font-variant-numeric: tabular-nums; }
+  .cd-lbl { display: block; margin-top: 6px; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim2); }
+  .cd-note { margin-top: 12px; font-size: 12px; color: var(--text-dim2); line-height: 1.6; }
+  .cd-done { font-size: 22px; font-weight: bold; color: var(--gold-bright); padding: 8px 0; }
+  @media (max-width: 480px) { .cd-box { min-width: 62px; } .cd-num { font-size: 26px; } }
 </style>
 </head>
 <body>
@@ -562,13 +587,14 @@
     <div class="guildname"><span class="br">&lt;</span>Vom Kreuzenden Brennzug<span class="br">&gt;</span></div>
     <div class="realm-faction"><span class="alliance">Allianz</span> &middot; PvP-Raidgilde &middot; Stufe 60 &middot; 47 Mitglieder</div>
     <p class="motto">"Gemeinsam raiden. Gemeinsam wachsen. Gemeinsam durchhalten." &mdash; Gildenmotto</p>
+    <p class="discord-wrap"><a class="discord-link" href="https://discord.gg/agCuQ3w" target="_blank" rel="noopener noreferrer" aria-label="Discord-Server der Gilde beitreten (öffnet in neuem Tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord beitreten</span></a></p>
   </div>
 
   <div class="nav">
     <div class="maxw">
-      <a href="#gilde">Gildenhalle</a>
+      <a href="#gilde">Startseite</a>
       <a href="tabs/mitglieder.html">Mitglieder</a>
-      <a href="tabs/gallerie.html">Gallerie</a>
+      <a href="tabs/gallerie.html">Galerie</a>
       <a href="#news">News</a>
       <a href="#erfolge">Erfolge</a>
       <a href="#fahrplan">Raids</a>
@@ -582,8 +608,21 @@
 
   <div class="maxw">
 
+    <div class="panel cd-wrap" id="forever-countdown">
+      <h2><span class="icon">⏳</span>WoW Forever &mdash; Release-Countdown</h2>
+      <div id="cd-body" role="timer" aria-label="Countdown bis zum Release von WoW Forever">
+        <div class="cd-boxes">
+          <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Tage</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Stunden</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Minuten</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Sekunden</span></div>
+        </div>
+      </div>
+      <div class="cd-note" id="cd-note">Release: 5. November 2026, 00:00 Uhr</div>
+    </div>
+
     <div class="panel hero" id="gilde">
-      <img class="guild-photo" src="media/gallery/naxxkill.jpg" alt="Vom Kreuzenden Brennzug">
+      <img class="guild-photo" src="media/gallery/WoWScrnShot_122020_232349.jpg" alt="Vom Kreuzenden Brennzug">
       <div class="hero-shade"></div>
       <h1 class="hero-title">Herzlich Willkommen</h1>
     </div>
@@ -783,5 +822,29 @@
     </div>
   </footer>
 
+<script>
+(function(){
+  // 4. November 2026, 15:00 Uhr PST (UTC-8) = 23:00 UTC
+  var TARGET=Date.UTC(2026,10,4,23,0,0);
+  var $=function(id){return document.getElementById(id)};
+  var p2=function(n){return n<10?'0'+n:''+n};
+  var local=new Date(TARGET).toLocaleString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  $('cd-note').textContent='Release: 5. November 2026, 00:00 Uhr CET';
+  function tick(){
+    var diff=TARGET-Date.now();
+    if(diff<=0){
+      $('cd-body').innerHTML='<div class="cd-done">WoW Forever ist da! ⚔️</div>';
+      $('cd-note').textContent='Wir sehen uns in Azeroth.';
+      clearInterval(t);return;
+    }
+    var s=Math.floor(diff/1000);
+    $('cd-d').textContent=Math.floor(s/86400);
+    $('cd-h').textContent=p2(Math.floor(s%86400/3600));
+    $('cd-m').textContent=p2(Math.floor(s%3600/60));
+    $('cd-s').textContent=p2(s%60);
+  }
+  var t=setInterval(tick,1000);tick();
+})();
+</script>
 </body>
 </html>

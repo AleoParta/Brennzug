@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>&lt;Vom Kreuzenden Brennzug&gt; – Gallerie</title>
+<title>&lt;Vom Kreuzenden Brennzug&gt; – Galerie</title>
 
 <style>
 :root{--gold:#e8c876;--gold-bright:#ffe9a8;--gold-dark:#8a6a1f;--parchment:#2a1d12;--parchment-2:#3a2817;--text:#d8c8a6;--text-dim2:#9a8666}
@@ -40,6 +40,22 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:60px;font-size:30px;line-height:1;padding:0}
 .lb-prev{left:6px}.lb-next{right:6px}
 @media(max-width:760px){.lb-stage{padding:4px 40px}.lb-nav{width:34px}.gal-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}
+
+.tl{overflow-x:auto;padding:4px 0 10px;margin-bottom:6px}
+.tl-track{display:flex;min-width:max-content;position:relative}
+.tl-track::before{content:"";position:absolute;left:0;right:0;top:11px;height:3px;background:var(--gold-dark)}
+.tl-node{flex:1 0 108px;position:relative;background:none;border:0;padding:26px 6px 4px;text-align:center;font-family:inherit;color:inherit;cursor:pointer}
+.tl-node::before{content:"";position:absolute;top:4px;left:50%;width:13px;height:13px;margin-left:-7px;transform:rotate(45deg);background:var(--gold);border:2px solid #000;box-shadow:0 0 0 1px var(--gold-dark)}
+.tl-node:hover:not(.empty)::before,.tl-node.active::before{background:#fff}
+.tl-node:focus-visible{outline:2px solid var(--gold-bright);outline-offset:-2px}
+.tl-node.empty{opacity:.4;cursor:default}.tl-node.empty::before{background:var(--gold-dark)}
+.tl-name{display:block;font-size:12.5px;font-weight:bold;color:var(--gold-bright);line-height:1.3}
+.tl-date{display:block;font-size:10.5px;color:var(--text-dim2);margin-top:2px}
+.tl-n{display:block;font-size:10.5px;color:var(--gold);margin-top:3px}
+.tl-sec{margin-top:22px;scroll-margin-top:12px}
+.tl-sec h3{margin:0 0 12px;font-size:16px;color:var(--gold-bright);text-shadow:0 1px 0 #000;border-bottom:1px solid rgba(232,200,118,.25);padding-bottom:6px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px}
+.tl-sec h3::before{content:"\25C6";color:var(--gold);font-size:11px;margin-right:8px}.tl-sec h3 .tl-h{flex:1}
+.tl-sec h3 small{font-size:11px;font-weight:normal;color:var(--text-dim2)}
 </style>
 
 </head>
@@ -52,19 +68,20 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
   <p class="motto">"Gemeinsam raiden. Gemeinsam wachsen. Gemeinsam durchhalten." — Gildenmotto</p>
 </div>
 <div class="nav"><div class="maxw">
-  <a href="../index.html">Gildenhalle</a><a href="mitglieder.html">Mitglieder</a><a href="gallerie.html" class="active">Gallerie</a>
+  <a href="../index.html">Startseite</a><a href="mitglieder.html">Mitglieder</a><a href="gallerie.html" class="active">Galerie</a>
   <a href="../index.html#news">News</a><a href="../index.html#erfolge">Erfolge</a><a href="../index.html#fahrplan">Raids</a>
   <a href="../index.html#protokoll">Raidprotokoll</a><a href="../index.html#loot">Beute</a><a href="../index.html#regeln">Regeln</a>
   <a href="../index.html#musik">Musik</a><a href="../index.html#gaestebuch">Gästebuch</a>
 </div></div>
 <div class="maxw">
-  <div class="panel"><h2>📸 Gallerie</h2><p class="lede">Screenshots, Wipes, Beute und die besten Momente der Gilde. Ein Klick auf ein Bild öffnet es in voller Größe, dort kannst du durch alle Bilder blättern.</p></div>
+  <div class="panel"><h2>📸 Galerie</h2><p class="lede">Screenshots, Wipes, Beute und die besten Momente der Gilde, geordnet nach den Meilensteinen von WoW Classic. Ein Klick auf einen Punkt der Zeitleiste springt zum Abschnitt, ein Klick auf ein Bild öffnet es in voller Größe.</p></div>
   <div class="panel">
     <div class="gal-tools">
       <span id="gal-count"></span>
       <label>Sortierung: <select id="gal-sort"><option value="desc">Neueste zuerst</option><option value="asc">Älteste zuerst</option></select></label>
     </div>
-    <div class="gal-grid" id="gal-grid"></div>
+    <nav class="tl" aria-label="Zeitleiste"><div class="tl-track" id="tl-track"></div></nav>
+    <div id="gal-sections"></div>
   </div>
 </div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Bildansicht">
@@ -81,35 +98,86 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
 <script>
 (function(){
 var BASE='../media/gallery/';
-var data=(window.GALLERY_DATA||[]).slice(), items=[], cur=-1, lastFocus=null;
+var PHASES=[
+ {name:'WoW Classic Release',start:'2019-08-26'},
+ {name:'Phase 2',start:'2019-11-12'},
+ {name:'BWL Release',start:'2020-02-12'},
+ {name:'ZG Release',start:'2020-04-15'},
+ {name:'AQ Release',start:'2020-07-28'},
+ {name:'Naxxramas Release',start:'2020-12-03'},
+ {name:'TBC Release',start:'2021-06-01'}
+];
+var PRE={name:'Davor / ohne Zuordnung',start:null};
+var data=(window.GALLERY_DATA||[]).slice(), items=[], cur=-1, lastFocus=null, active=null;
 var $=function(id){return document.getElementById(id)};
-var grid=$('gal-grid'),lb=$('lb'),stage=$('lb-stage'),img=$('lb-img');
+var lb=$('lb'),stage=$('lb-stage'),img=$('lb-img'),secs=$('gal-sections'),track=$('tl-track');
 
-function fmtDate(iso){var d=new Date(iso);return isNaN(d)?'':d.toLocaleDateString('de-DE',{day:'2-digit',month:'long',year:'numeric'})}
-function sortItems(){
-  var dir=$('gal-sort').value==='asc'?1:-1;
-  items=data.slice().sort(function(a,b){return a.date<b.date?-dir:a.date>b.date?dir:0});
+function fmtDate(iso){var d=new Date(iso);return isNaN(d)?'':d.toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'})}
+function fmtDay(ymd){return fmtDate(ymd+'T12:00:00')}
+function phaseOf(it){
+  var day=String(it.date).slice(0,10),k=-1;
+  for(var i=0;i<PHASES.length;i++){if(day>=PHASES[i].start)k=i}
+  return k;
 }
-function renderGrid(){
-  sortItems(); grid.textContent='';
+function groups(){
+  var g=[{p:PRE,items:[]}].concat(PHASES.map(function(p){return{p:p,items:[]}}));
+  data.forEach(function(it){g[phaseOf(it)+1].items.push(it)});
+  return g;
+}
+function renderTimeline(g){
+  track.textContent='';
+  g.forEach(function(gr,gi){
+    if(gi===0&&!gr.items.length)return;
+    var n=gr.items.length,b=document.createElement('button');
+    b.type='button';b.className='tl-node'+(n?'':' empty');b.dataset.g=gi;
+    if(!n)b.disabled=true;
+    var a=document.createElement('span');a.className='tl-name';a.textContent=gr.p.name;
+    var d=document.createElement('span');d.className='tl-date';d.textContent=gr.p.start?fmtDay(gr.p.start):'';
+    var c=document.createElement('span');c.className='tl-n';c.textContent=n+(n===1?' Bild':' Bilder');
+    b.appendChild(a);if(gr.p.start)b.appendChild(d);b.appendChild(c);
+    b.addEventListener('click',function(){
+      var el=$('sec-'+gi);if(!el)return;
+      [].forEach.call(track.children,function(x){x.classList.remove('active')});b.classList.add('active');
+      el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    });
+    track.appendChild(b);
+  });
+}
+function render(){
+  var dir=$('gal-sort').value==='asc'?1:-1,g=groups();
+  renderTimeline(g);
+  secs.textContent='';items=[];
+  $('gal-count').textContent=data.length+(data.length===1?' Bild':' Bilder');
   var old=document.querySelector('.gal-empty');if(old)old.remove();
-  $('gal-count').textContent=items.length+(items.length===1?' Bild':' Bilder');
-  if(!items.length){var p=document.createElement('p');p.className='gal-empty';
-    p.textContent='Noch keine Bilder vorhanden. Lege Bilder in media/gallery/ ab und führe build_gallery.py aus.';grid.parentNode.appendChild(p);return}
-  items.forEach(function(it,i){
-    var b=document.createElement('button');b.type='button';b.className='gal-item';
-    b.setAttribute('aria-label','Bild vom '+fmtDate(it.date)+' öffnen');
-    var im=document.createElement('img');im.loading='lazy';im.src=BASE+encodeURIComponent(it.file);im.alt=it.file;
-    var cap=document.createElement('div');cap.className='gal-cap';
-    var d=document.createElement('span');d.textContent=fmtDate(it.date);
-    cap.appendChild(d);b.appendChild(im);b.appendChild(cap);
-    b.addEventListener('click',function(){open(i)});grid.appendChild(b);
+  if(!data.length){var p=document.createElement('p');p.className='gal-empty';
+    p.textContent='Noch keine Bilder vorhanden. Lege Bilder in media/gallery/ ab und führe build_gallery.py aus.';secs.appendChild(p);return}
+  var order=g.map(function(gr,i){return i}).filter(function(i){return g[i].items.length});
+  if(dir===-1)order.reverse();
+  order.forEach(function(gi){
+    var gr=g[gi];
+    gr.items.sort(function(a,b){return a.date<b.date?-dir:a.date>b.date?dir:0});
+    var sec=document.createElement('section');sec.className='tl-sec';sec.id='sec-'+gi;
+    var h=document.createElement('h3'),t=document.createElement('span');t.className='tl-h';t.textContent=gr.p.name;
+    var sm=document.createElement('small');sm.textContent=(gr.p.start?'ab '+fmtDay(gr.p.start)+' · ':'')+gr.items.length+(gr.items.length===1?' Bild':' Bilder');
+    h.appendChild(t);h.appendChild(sm);sec.appendChild(h);
+    var grid=document.createElement('div');grid.className='gal-grid';
+    gr.items.forEach(function(it){
+      var idx=items.length;it._phase=gr.p.name;items.push(it);
+      var b=document.createElement('button');b.type='button';b.className='gal-item';
+      b.setAttribute('aria-label','Bild vom '+fmtDate(it.date)+' öffnen');
+      var im=document.createElement('img');im.loading='lazy';im.src=BASE+encodeURIComponent(it.file);im.alt=it.file;
+      var cap=document.createElement('div');cap.className='gal-cap';
+      var d=document.createElement('span');d.textContent=fmtDate(it.date);
+      cap.appendChild(d);b.appendChild(im);b.appendChild(cap);
+      b.addEventListener('click',function(){open(idx)});grid.appendChild(b);
+    });
+    sec.appendChild(grid);secs.appendChild(sec);
   });
 }
 function show(i){
   cur=i;var it=items[i];stage.classList.remove('zoom');stage.scrollTo(0,0);
   img.src=BASE+encodeURIComponent(it.file);img.alt=it.file;
-  $('lb-info').textContent=(i+1)+' / '+items.length+' · '+fmtDate(it.date);
+  $('lb-info').textContent=(i+1)+' / '+items.length+' · '+fmtDate(it.date)+' · '+it._phase;
   $('lb-prev').disabled=i===0;$('lb-next').disabled=i===items.length-1;
 }
 function open(i){lastFocus=document.activeElement;lb.hidden=false;document.body.style.overflow='hidden';show(i);$('lb-close').focus()}
@@ -120,7 +188,7 @@ $('lb-prev').addEventListener('click',function(){step(-1)});
 $('lb-next').addEventListener('click',function(){step(1)});
 img.addEventListener('click',function(){stage.classList.toggle('zoom')});
 lb.addEventListener('click',function(e){if(e.target===lb)close()});
-$('gal-sort').addEventListener('change',renderGrid);
+$('gal-sort').addEventListener('change',render);
 document.addEventListener('keydown',function(e){
   if(lb.hidden)return;
   if(e.key==='Escape')close();
@@ -130,7 +198,7 @@ document.addEventListener('keydown',function(e){
 var tx=null;
 stage.addEventListener('touchstart',function(e){tx=stage.classList.contains('zoom')?null:e.touches[0].clientX},{passive:true});
 stage.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)step(dx<0?1:-1)});
-renderGrid();
+render();
 })();
 </script>
 <footer>
