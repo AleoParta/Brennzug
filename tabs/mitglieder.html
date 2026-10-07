@@ -6,18 +6,578 @@
 <title>&lt;Vom Kreuzenden Brennzug&gt; – Mitglieder</title>
 
 <style>
-:root{--gold:#e8c876;--gold-bright:#ffe9a8;--gold-dark:#8a6a1f;--parchment:#2a1d12;--parchment-2:#3a2817;--text:#d8c8a6;--text-dim2:#9a8666}
-*{box-sizing:border-box}body{margin:0;background-color:#d9bf88;background-image:radial-gradient(ellipse at 50% 35%,rgba(255,242,205,.55),transparent 65%),radial-gradient(ellipse at 0 0,rgba(110,62,16,.45),transparent 45%),radial-gradient(ellipse at 100% 0,rgba(110,62,16,.4),transparent 42%),radial-gradient(ellipse at 0 100%,rgba(110,62,16,.4),transparent 45%),radial-gradient(ellipse at 100% 100%,rgba(110,62,16,.5),transparent 48%);background-attachment:fixed;color:var(--text);font-family:Cambria,Georgia,"Times New Roman",serif;font-size:14px}.maxw{max-width:980px;margin:auto;padding:0 16px}a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-bright);text-decoration:underline}
-.realmbar{background:#000;border-bottom:1px solid #3a2a12;font-size:10.5px;color:#8a7a5a;letter-spacing:.5px}.realmbar .maxw{display:flex;justify-content:space-between;padding:5px 16px}
-.banner{padding:34px 16px 26px;text-align:center;background:radial-gradient(ellipse at 50% -10%,rgba(36,90,154,.35),transparent 60%);border-bottom:3px double var(--gold-dark)}.crest{width:88px;height:88px;margin:0 auto 10px;border-radius:50%;background:#1a1006;border:3px solid var(--gold);overflow:hidden}.crest img{width:100%;height:100%;object-fit:cover}.guildname{font-size:40px;font-weight:bold;letter-spacing:1px;color:#4a2608;text-shadow:0 1px 0 rgba(255,240,200,.6)}.guildname .br{color:#8a4a10}.realm-faction{font-size:12px;color:#4a3820;letter-spacing:2px;text-transform:uppercase;margin-top:4px}.alliance{color:#1a4f8f;font-weight:bold}.motto{margin:14px auto 0;max-width:520px;font-style:italic;font-size:13px;color:#4a3820;line-height:1.6}
-.nav{background:linear-gradient(180deg,var(--parchment-2),var(--parchment));border-bottom:2px solid var(--gold-dark);border-top:1px solid #5a4020}.nav .maxw{display:flex;justify-content:center;gap:6px;padding:9px 16px;flex-wrap:wrap}.nav a{display:block;padding:7px 18px 8px;font-size:13px;font-weight:bold;color:#ffd100;text-shadow:1px 1px #000;background:linear-gradient(180deg,#a52323,#6e1010 48%,#4a0808 52%,#6a1212);border:2px solid #c9a23a;border-radius:5px;box-shadow:inset 0 1px rgba(255,220,160,.45),0 2px 3px rgba(0,0,0,.6)}.nav a:hover,.nav .active{color:#fff;filter:brightness(1.25);text-decoration:none}
-.panel{position:relative;background:linear-gradient(180deg,var(--parchment-2),var(--parchment));border:2px solid var(--gold-dark);box-shadow:inset 0 0 0 1px rgba(232,200,118,.25),0 4px 14px rgba(0,0,0,.4);border-radius:3px;margin:22px 0;padding:20px 22px}.panel:before,.panel:after{content:"◆";position:absolute;color:var(--gold);font-size:12px;top:-8px}.panel:before{left:-8px}.panel:after{right:-8px}.panel h2{margin:0 0 14px;font-size:19px;letter-spacing:1px;color:var(--gold-bright);border-bottom:1px solid rgba(232,200,118,.25);padding-bottom:8px}.lede{font-size:13.5px;line-height:1.7}
+  :root {
+    --gold: #e8c876;
+    --gold-bright: #ffe9a8;
+    --gold-dark: #8a6a1f;
+    --parchment: #2a1d12;
+    --parchment-2: #3a2817;
+    --bg: #0c0906;
+    --text: #d8c8a6;
+    --text-dim: #a4917150;
+    --text-dim2: #9a8666;
+    --horde: #245a9a;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background-color: #d9bf88;
+    background-image:
+      radial-gradient(ellipse at 50% 35%, rgba(255,242,205,0.55) 0%, transparent 65%),
+      radial-gradient(ellipse at 0% 0%, rgba(110,62,16,0.45) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 0%, rgba(110,62,16,0.40) 0%, transparent 42%),
+      radial-gradient(ellipse at 0% 100%, rgba(110,62,16,0.40) 0%, transparent 45%),
+      radial-gradient(ellipse at 100% 100%, rgba(110,62,16,0.50) 0%, transparent 48%),
+      url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='320'%20height='320'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.035%200.05'%20numOctaves='4'%20seed='7'/%3E%3CfeColorMatrix%20values='0%200%200%200%200.42%20%200%200%200%200%200.27%20%200%200%200%200%200.1%20%200%200%200%200.75%200'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url%28%23n%29'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: Cambria, Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    min-height: 100%;
+  }
+
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { color: var(--gold-bright); text-decoration: underline; }
+
+  .maxw { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  /* realm status bar */
+  .realmbar {
+    background: #000;
+    border-bottom: 1px solid #3a2a12;
+    font-size: 10.5px;
+    color: #8a7a5a;
+    letter-spacing: 0.5px;
+  }
+  .realmbar .maxw {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 16px;
+  }
+  .realmbar .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4caf50;
+    margin-right: 5px;
+    box-shadow: 0 0 4px #4caf50;
+  }
+
+  /* header / banner */
+  .banner {
+    position: relative;
+    padding: 34px 16px 26px 16px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(36,90,154,0.35), transparent 60%);
+    border-bottom: 3px double var(--gold-dark);
+  }
+  .crest {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #4a3018, #1a1006 75%);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 2px #000, 0 0 18px rgba(232,200,118,0.35), inset 0 0 14px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    overflow: hidden;
+  }
+  .crest img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .guild-photo {
+    width: 100%;
+    display: block;
+    border: 2px solid var(--gold-dark);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  }
+  .guildname {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 4px 0 2px 0;
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, var(--gold-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.6);
+  }
+  .guildname .br { color: var(--gold-dark); -webkit-text-fill-color: var(--gold-dark); }
+  .realm-faction {
+    font-size: 12px;
+    color: var(--text-dim2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .realm-faction .horde { color: #e05656; font-weight: bold; }
+  .motto {
+    margin: 14px auto 0 auto;
+    max-width: 520px;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-dim2);
+    line-height: 1.6;
+  }
+
+  /* nav */
+  .nav {
+    background: linear-gradient(180deg, var(--parchment-2), var(--parchment));
+    border-bottom: 2px solid var(--gold-dark);
+    border-top: 1px solid #5a4020;
+  }
+  .nav .maxw {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 16px;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    display: block;
+    padding: 7px 18px 8px;
+    font-family: "Friz Quadrata TT", "Friz Quadrata", Cambria, Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    color: #ffd100;
+    text-shadow: 1px 1px 0 #000;
+    background: linear-gradient(180deg, #a52323 0%, #6e1010 48%, #4a0808 52%, #6a1212 100%);
+    border: 2px solid #c9a23a;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 0 rgba(255,220,160,0.45), inset 0 0 0 1px rgba(0,0,0,0.7), 0 2px 3px rgba(0,0,0,0.6);
+    cursor: pointer;
+  }
+  .nav a:hover {
+    color: #fff;
+    filter: brightness(1.3);
+    text-decoration: none;
+  }
+  .nav a:active {
+    padding: 8px 18px 7px;
+    color: #e0b800;
+    filter: none;
+    background: linear-gradient(180deg, #4a0808, #6e1010);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(0,0,0,0.7);
+  }
+  .nav a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  /* ornate panel */
+  .panel {
+    position: relative;
+    background: linear-gradient(180deg, var(--parchment-2), var(--parchment));
+    border: 2px solid var(--gold-dark);
+    box-shadow: inset 0 0 0 1px rgba(232,200,118,0.25), 0 4px 14px rgba(0,0,0,0.4);
+    border-radius: 3px;
+    margin: 22px 0;
+    padding: 20px 22px;
+  }
+  .panel::before, .panel::after {
+    content: "\25C6";
+    position: absolute;
+    color: var(--gold);
+    font-size: 12px;
+    top: -8px;
+  }
+  .panel::before { left: -8px; }
+  .panel::after { right: -8px; }
+
+  .panel h2 {
+    margin: 0 0 14px 0;
+    font-size: 19px;
+    letter-spacing: 1px;
+    color: var(--gold-bright);
+    text-shadow: 0 1px 0 #000;
+    border-bottom: 1px solid rgba(232,200,118,0.25);
+    padding-bottom: 8px;
+  }
+  .panel h2 .icon { margin-right: 8px; }
+
+  .lede {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* roster */
+  .roster-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(232,200,118,0.1);
+  }
+  .roster-row:last-child { border-bottom: none; }
+  .roster-row:hover { background: rgba(232,200,118,0.05); }
+  .class-icon {
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    border: 2px solid var(--gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: #1a1006;
+  }
+  .online-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4caf50;
+    box-shadow: 0 0 4px #4caf50;
+    margin-right: 5px;
+  }
+  .r-name {
+    font-weight: bold;
+    font-size: 14.5px;
+  }
+  .r-meta {
+    font-size: 10.5px;
+    color: var(--text-dim2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+  }
+  .r-quote {
+    font-size: 11.5px;
+    color: #8a7a5a;
+    font-style: italic;
+    margin-top: 3px;
+  }
+  .r-right {
+    margin-left: auto;
+    text-align: right;
+    font-size: 11px;
+    color: var(--text-dim2);
+    flex: none;
+  }
+  .r-right .lvl { color: var(--gold); font-weight: bold; }
+
+  /* quality colors */
+  .epic { color: #a335ee; }
+  .legendary { color: #ff8000; }
+  .rare { color: #0070dd; }
+  .uncommon { color: #1eff00; }
+
+  /* quest/news log */
+  .quest {
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(232,200,118,0.15);
+  }
+  .quest:last-child { border-bottom: none; }
+  .quest-tag {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 1px 7px;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+  .quest h4 { margin: 0 0 4px 0; font-size: 13px; color: var(--text); }
+  .quest p { margin: 0; font-size: 12px; color: var(--text-dim2); line-height: 1.55; }
+
+  /* two column */
+  .cols {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 18px;
+  }
+
+  /* loot table */
+  table.loot { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.loot th {
+    text-align: left;
+    color: var(--gold);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--gold-dark);
+    padding: 6px 8px;
+  }
+  table.loot td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(232,200,118,0.08);
+    color: var(--text-dim2);
+  }
+  table.loot td:first-child { font-weight: bold; }
+
+  /* ticker */
+  .ticker {
+    text-align: center;
+    padding: 12px 16px;
+    background: linear-gradient(90deg, transparent, rgba(36,90,154,0.18), transparent);
+    border-top: 1px solid var(--gold-dark);
+    border-bottom: 1px solid var(--gold-dark);
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--text-dim2);
+  }
+  .ticker b { color: var(--gold); font-style: normal; }
+
+  /* guestbook */
+  .gb-entry { padding: 10px 0; border-bottom: 1px solid rgba(232,200,118,0.1); font-size: 12.5px; }
+  .gb-entry:last-child { border-bottom: none; }
+  .gb-name { color: var(--gold); font-weight: bold; }
+  .gb-time { color: #6d5f47; font-size: 10.5px; margin-left: 6px; }
+
+  footer {
+    text-align: center;
+    padding: 18px 16px 34px 16px;
+  }
+  .loading-tip {
+    max-width: 620px;
+    margin: 0 auto 16px auto;
+    border: 1px solid var(--gold-dark);
+    padding: 10px 16px;
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--text-dim2);
+    background: rgba(232,200,118,0.04);
+  }
+  .loading-tip b { color: var(--gold); font-style: normal; }
+  .copyright { font-size: 10px; color: #5a4c34; letter-spacing: 0.5px; line-height: 1.8; }
+
+  /* extra member grid */
+  .member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 14px 10px;
+    margin-top: 4px;
+  }
+  .member-card {
+    text-align: center;
+    padding: 8px 4px 10px 4px;
+    border-radius: 4px;
+  }
+  .member-card:hover { background: rgba(232,200,118,0.06); }
+  .member-card img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-dark);
+    box-shadow: 0 0 0 1px #000, 0 0 8px rgba(232,200,118,0.15);
+    display: block;
+    margin: 0 auto 6px auto;
+    object-fit: cover;
+  }
+  .member-card .mc-name {
+    font-size: 11.5px;
+    font-weight: bold;
+    color: var(--text);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+  .member-card .mc-rank {
+    font-size: 9.5px;
+    color: var(--text-dim2);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+  }
+
+  /* raid schedule / fahrplan */
+  table.fahrplan {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+    table-layout: fixed;
+  }
+  table.fahrplan th {
+    color: var(--gold);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 4px;
+    border-bottom: 1px solid var(--gold-dark);
+    text-align: center;
+  }
+  table.fahrplan td {
+    padding: 12px 4px;
+    text-align: center;
+    vertical-align: top;
+    color: var(--text-dim2);
+    border-right: 1px solid rgba(232,200,118,0.08);
+  }
+  table.fahrplan td:last-child { border-right: none; }
+  table.fahrplan td.raidday {
+    background: linear-gradient(180deg, rgba(232,200,118,0.14), rgba(232,200,118,0.04));
+    color: var(--gold-bright);
+    font-weight: bold;
+    border-top: 2px solid var(--gold);
+    border-radius: 2px;
+  }
+  table.fahrplan td.raidday .rd-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+  table.fahrplan td.raidday .rd-time { font-size: 12px; }
+  table.fahrplan td.raidday .rd-sub { font-size: 9.5px; color: var(--gold); margin-top: 2px; }
+
+  @media (max-width: 680px) {
+    .cols { grid-template-columns: 1fr; }
+    .guildname { font-size: 28px; }
+    .r-right { display: none; }
+    table.fahrplan { font-size: 9.5px; }
+    table.fahrplan td, table.fahrplan th { padding: 6px 2px; }
+  }
+
+  /* old-school guild portal extras */
+  .counter {
+    display:inline-block;
+    padding:3px 7px;
+    background:#050505;
+    border:1px inset #6f603f;
+    color:#ffdf6e;
+    font-family:"Courier New", monospace;
+    letter-spacing:2px;
+    font-size:12px;
+  }
+  .news-item { padding:10px 0; border-bottom:1px dashed rgba(232,200,118,0.15); }
+  .news-item:last-child { border-bottom:none; }
+  .news-date { font-size:10px; color:#6d5f47; }
+  .news-title { color:var(--gold); font-weight:bold; margin:2px 0 4px; }
+  .news-text { font-size:12px; color:var(--text-dim2); line-height:1.55; }
+  .ts-row { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(232,200,118,0.08); font-size:11px; }
+  .ts-online { color:#69d36b; }
+  .protocol {
+    background:#181006;
+    border:1px solid #665020;
+    padding:14px;
+    font-family:Georgia, "Times New Roman", serif;
+  }
+  .protocol-head { border-bottom:1px solid #665020; padding-bottom:8px; margin-bottom:10px; }
+  .protocol-table { width:100%; border-collapse:collapse; font-size:11px; }
+  .protocol-table td, .protocol-table th { padding:6px; border-bottom:1px solid rgba(232,200,118,0.08); text-align:left; }
+  .protocol-table th { color:var(--gold); }
+  .scenx-ending {
+    margin-top:14px;
+    padding:12px;
+    border:1px dashed #80652a;
+    background:rgba(232,200,118,0.035);
+    font-style:italic;
+    color:#b9a57e;
+  }
+  .player { width:100%; }
+  .player audio { width:100%; margin-top:4px; }
+  .old-school {
+    font-size:10px;
+    color:#6d5f47;
+    text-align:center;
+    margin-top:10px;
+  }
+  .construction {
+    display:inline-block;
+    border:1px dashed #80652a;
+    padding:4px 8px;
+    color:#9b875f;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+
+  /* parchment: dark text outside the dark panels */
+  .guildname {
+    background: linear-gradient(180deg, #6b3a0c, #3d1f06 60%, #2a1504);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 1px 0 rgba(255,240,200,0.6));
+  }
+  .guildname .br { color: #8a4a10; -webkit-text-fill-color: #8a4a10; }
+  .realm-faction, .motto, .ticker { color: #4a3820; }
+  .realm-faction .alliance { color: #1a4f8f; font-weight: bold; }
+  .ticker b, .loading-tip b { color: #6b3a08; }
+  .loading-tip { color: #4a3820; background: rgba(255,240,200,0.3); border-color: #8a6a1f; }
+  .copyright, .copyright .old-school { color: #4a3820; }
+  footer a { color: #6b3a08; }
+
+  /* hero */
+  .hero { padding: 6px; margin: 22px 0; }
+  .hero .guild-photo { border: none; box-shadow: none; max-height: 460px; object-fit: cover; }
+  .hero-shade {
+    position: absolute; inset: 6px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.75));
+  }
+  .hero-title {
+    position: absolute; left: 6px; right: 6px; bottom: 6px;
+    margin: 0; padding: 0 16px 22px;
+    text-align: center;
+    font-family: "Friz Quadrata TT", "Friz Quadrata", Cambria, Georgia, serif;
+    font-size: clamp(30px, 7vw, 64px);
+    font-weight: bold; letter-spacing: 2px; line-height: 1.1;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 0 #000, 0 0 14px rgba(0,0,0,0.9), 0 0 30px rgba(232,150,40,0.35);
+  }
+
+  /* raid progress */
+  .raidbar {
+    position: relative; height: 30px; overflow: hidden;
+    background: #0a0603;
+    border: 2px solid var(--gold-dark); border-radius: 3px;
+    box-shadow: inset 0 0 6px #000, 0 0 0 1px #000;
+  }
+  .raidbar .fill {
+    height: 100%; width: 66.667%;
+    background: linear-gradient(180deg, #ff9a3c, #e2551a 45%, #a82a08 55%, #7a1c04);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  .raidbar .seg {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12));
+  }
+  .raidbar .label {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 13px; color: #fff; text-shadow: 1px 1px 0 #000, 0 0 4px #000;
+  }
+  .raid-caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--text-dim2); }
+  .raid-caption b { color: var(--gold); }
+
+  /* Discord-Link */
+  .discord-wrap { margin: 14px 0 0 0; }
+  .discord-link {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 7px 16px; border: 2px solid var(--gold-dark); border-radius: 4px;
+    background: linear-gradient(180deg, #4752c4, #3a44a8); color: #fff;
+    font-size: 13px; font-weight: bold; text-shadow: 1px 1px #000;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), 0 2px 6px rgba(0,0,0,0.5);
+  }
+  .discord-link:hover { color: #fff; text-decoration: none; filter: brightness(1.15); border-color: var(--gold); }
+  .discord-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .discord-link svg { width: 22px; height: 22px; fill: #fff; flex: none; }
+
+  /* Forever-Countdown */
+  .cd-wrap { text-align: center; }
+  .cd-title { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim2); margin-bottom: 12px; }
+  .cd-title b { color: var(--gold-bright); }
+  .cd-boxes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .cd-box { min-width: 76px; padding: 10px 8px 8px; background: #1a1006; border: 2px solid var(--gold-dark); border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(232,200,118,0.2); }
+  .cd-num { display: block; font-size: 32px; font-weight: bold; line-height: 1; color: var(--gold-bright); text-shadow: 0 1px 0 #000; font-variant-numeric: tabular-nums; }
+  .cd-lbl { display: block; margin-top: 6px; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim2); }
+  .cd-note { margin-top: 12px; font-size: 12px; color: var(--text-dim2); line-height: 1.6; }
+  .cd-done { font-size: 22px; font-weight: bold; color: var(--gold-bright); padding: 8px 0; }
+  @media (max-width: 480px) { .cd-box { min-width: 62px; } .cd-num { font-size: 26px; } }
+
+  .nav a.active { color: #fff; filter: brightness(1.3); box-shadow: inset 0 2px 5px rgba(0,0,0,0.6), 0 0 0 1px var(--gold-bright); }
 .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.featured{padding:14px;border:1px solid rgba(232,200,118,.18);background:rgba(0,0,0,.14);min-height:155px}.featured:hover{background:rgba(232,200,118,.05)}.featured-head{display:flex;align-items:center;gap:12px;margin-bottom:9px}.featured img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-dark);box-shadow:0 0 0 1px #000}.featured-name{font-size:15px;font-weight:bold}.featured-meta,.member-class{font-size:10px;color:var(--text-dim2);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}.featured-quote{font-size:11.5px;color:#8a7a5a;font-style:italic;line-height:1.5;border-top:1px solid rgba(232,200,118,.1);padding-top:8px}.online-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 4px #4caf50;margin-right:5px}
 .member-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 22px}.member-row{display:flex;align-items:flex-start;gap:12px;padding:9px 6px;border-bottom:1px solid rgba(232,200,118,.1)}.member-row:hover{background:rgba(232,200,118,.05)}.member-row img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-dark);box-shadow:0 0 0 1px #000}.member-name{font-size:13.5px;font-weight:bold}.member-info{flex:1;min-width:0}.member-quote{font-size:11.5px;color:#8a7a5a;font-style:italic;line-height:1.5;min-height:1.5em;margin-top:3px}
 .c-krieger{color:#c79c6e}.c-magier{color:#69ccf0}.c-druide{color:#ff7d0a}.c-hexer{color:#a89be0}.c-paladin{color:#f58cba}.c-priester{color:#fff}.c-schurke{color:#fff569}.c-schamane{color:#3b8ef0}.c-jaeger{color:#abd473}.c-todesritter{color:#e0384f}
-footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;margin:0 auto 16px;border:1px solid var(--gold-dark);padding:10px 16px;font-size:11.5px;font-style:italic;color:#4a3820;background:rgba(255,240,200,.3)}.loading-tip b{color:#6b3a08}.copyright{font-size:10px;color:#4a3820;line-height:1.8}
-@media(max-width:680px){.guildname{font-size:28px}.featured-grid,.member-list{grid-template-columns:1fr}.realmbar .maxw{flex-direction:column;gap:3px}}
-
+@media(max-width:680px){.featured-grid,.member-list{grid-template-columns:1fr}}
 .member-row img,.featured img{cursor:zoom-in;transition:transform .15s,border-color .15s}.member-row img:hover,.featured img:hover{transform:scale(1.08);border-color:var(--gold-bright)}.member-row img:focus-visible,.featured img:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px}
 .plb{position:fixed;inset:0;z-index:100;background:rgba(8,5,2,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}.plb[hidden]{display:none}
 .plb-top{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--text-dim2);font-size:12px}
@@ -28,23 +588,33 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
 .plb-cap{margin-top:14px;text-align:center;max-width:560px;padding:0 8px}.plb-name{font-size:22px;font-weight:bold}.plb-class{font-size:11px;color:var(--text-dim2);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}.plb-quote{font-size:13px;color:#b8a888;font-style:italic;line-height:1.5;margin-top:10px}
 .plb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;font-size:30px;line-height:1;padding:0}.plb-prev{left:10px}.plb-next{right:10px}
 @media(max-width:680px){.plb-fig{max-width:calc(100vw - 90px)}.plb-nav{width:36px}.plb-prev{left:4px}.plb-next{right:4px}}
+
 </style>
 
 </head>
 <body>
-<div class="realmbar"><div class="maxw"><span><span class="online-dot"></span>Realm: Forever — Online</span><span>Fraktion: Allianz · Spielerzahl: 84 Mitglieder</span></div></div>
-<div class="banner">
-  <div class="crest"><img src="../media/gildenlogo.png" alt="Gildenlogo"></div>
-  <div class="guildname"><span class="br">&lt;</span>Vom Kreuzenden Brennzug<span class="br">&gt;</span></div>
-  <div class="realm-faction"><span class="alliance">Allianz</span> · PvP-Raidgilde · Stufe 60 · 84 Mitglieder</div>
-  <p class="motto">"Gemeinsam raiden. Gemeinsam wachsen. Gemeinsam durchhalten." — Gildenmotto</p>
-</div>
-<div class="nav"><div class="maxw">
-  <a href="../index.html">Gildenhalle</a><a href="./" class="active">Mitglieder</a><a href="gallerie.html">Galerie</a>
-  <a href="../index.html#news">News</a><a href="../index.html#erfolge">Erfolge</a><a href="../index.html#fahrplan">Raids</a>
-  <a href="../index.html#protokoll">Raidprotokoll</a><a href="../index.html#loot">Beute</a><a href="../index.html#regeln">Regeln</a>
-  <a href="../index.html#musik">Musik</a><a href="../index.html#gaestebuch">Gästebuch</a>
-</div></div>
+  <div class="realmbar">
+    <div class="maxw">
+      <span><span class="dot"></span>Realm: Forever &mdash; Online</span>
+      <span>Fraktion: Allianz &middot; Spielerzahl: <span data-member-count>113</span> Mitglieder</span>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="crest"><img src="../media/gildenlogo.png" alt="Gildenlogo"></div>
+    <div class="guildname"><span class="br">&lt;</span>Vom Kreuzenden Brennzug<span class="br">&gt;</span></div>
+    <div class="realm-faction"><span class="alliance">Allianz</span> &middot; PvP-Raidgilde &middot; Stufe 60 &middot; <span data-member-count>113</span> Mitglieder</div>
+    <p class="motto">"Gemeinsam raiden. Gemeinsam wachsen. Gemeinsam durchhalten." &mdash; Gildenmotto</p>
+    <p class="discord-wrap"><a class="discord-link" href="https://discord.gg/agCuQ3w" target="_blank" rel="noopener noreferrer" aria-label="Discord-Server der Gilde beitreten (öffnet in neuem Tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord beitreten</span></a></p>
+  </div>
+<div class="nav">
+    <div class="maxw">
+      <a href="../index.html">Startseite</a>
+      <a href="mitglieder.html" class="active">Mitglieder</a>
+      <a href="gallerie.html">Galerie</a>
+      <a href="../index.html#gaestebuch">Gästebuch</a>
+    </div>
+  </div>
 <div class="maxw">
   <div class="panel"><h2>⚔️ Gildenmitglieder</h2><p class="lede">Die Mannschaft des Vom Kreuzenden Brennzug. Einige stehen im Rampenlicht, der Rest hält den Zug am Laufen.</p></div>
   <div class="panel">
@@ -107,6 +677,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-magier">Alenia</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/human.png" alt="Anat">
+        <div class="member-info"><div class="member-name c-magier">Anat</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/andalf.png" alt="Andalf">
         <div class="member-info"><div class="member-name c-priester">Andalf</div><div class="member-class">Priester</div><div class="member-quote">Ulf hat mein Bett geklaut</div></div>
       </div>
@@ -119,12 +693,52 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-schurke">Asunasun</div><div class="member-class">Schurke</div><div class="member-quote">Arms aus Überzeugung</div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/human.png" alt="Avareth">
+        <div class="member-info"><div class="member-name c-krieger">Avareth</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Ayleene">
+        <div class="member-info"><div class="member-name c-krieger">Ayleene</div><div class="member-class">Krieger</div><div class="member-quote">Träger von Sulfaras, Hand von Ragnaros</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Bamzi">
+        <div class="member-info"><div class="member-name c-schurke">Bamzi</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Bassrix">
+        <div class="member-info"><div class="member-name c-schurke">Bassrix</div><div class="member-class">Schurke</div><div class="member-quote">Vis&#x27;kag locked</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Batian">
+        <div class="member-info"><div class="member-name c-priester">Batian</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Benediktamus">
+        <div class="member-info"><div class="member-name c-priester">Benediktamus</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Bigshow">
+        <div class="member-info"><div class="member-name c-hexer">Bigshow</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/dwarf.png" alt="Boyd">
         <div class="member-info"><div class="member-name c-jaeger">Boyd</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Calungur">
+        <div class="member-info"><div class="member-name c-krieger">Calungur</div><div class="member-class">Krieger</div><div class="member-quote">Walt hätte bis heute gerne sein Binding</div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/human.png" alt="Carabina">
         <div class="member-info"><div class="member-name c-magier">Carabina</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Coolpix">
+        <div class="member-info"><div class="member-name c-magier">Coolpix</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Demonwalker">
+        <div class="member-info"><div class="member-name c-schurke">Demonwalker</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/dwarf.png" alt="Egge">
@@ -139,8 +753,20 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-krieger">Eqi</div><div class="member-class">Krieger</div><div class="member-quote">Teil einer riesigen Throne &amp; Liberty Verschwörung</div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Eqq">
+        <div class="member-info"><div class="member-name c-priester">Eqq</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Evilcheese">
+        <div class="member-info"><div class="member-name c-priester">Evilcheese</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/foory.png" alt="Foory">
         <div class="member-info"><div class="member-name c-krieger">Foory</div><div class="member-class">Krieger</div><div class="member-quote">War schon Rank 10 als die Schriftrollen geschrieben wurden</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Fullex">
+        <div class="member-info"><div class="member-name c-schurke">Fullex</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/gnome.png" alt="Gabbagandalf">
@@ -155,12 +781,28 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-druide">Ganoez</div><div class="member-class">Druide</div><div class="member-quote">Bitte hört auf mich Ganoez zu nennen</div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Grimbardt">
+        <div class="member-info"><div class="member-name c-jaeger">Grimbardt</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Hailyera">
+        <div class="member-info"><div class="member-name c-hexer">Hailyera</div><div class="member-class">Hexenmeister</div><div class="member-quote">Hat die Gildenbank für 20 Minuten verwaltet</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Hamzi">
+        <div class="member-info"><div class="member-name c-schurke">Hamzi</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/human.png" alt="Herrod">
         <div class="member-info"><div class="member-name c-paladin">Herrod</div><div class="member-class">Paladin</div><div class="member-quote">Das Anrecht vom ersten Val&#x27;anyr wurde ihm geklaut</div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/dwarf.png" alt="Hesker">
         <div class="member-info"><div class="member-name c-krieger">Hesker</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/dwarf.png" alt="Höllendödel">
+        <div class="member-info"><div class="member-name c-jaeger">Höllendödel</div><div class="member-class">Jäger</div><div class="member-quote">Möchte jemand einen Gesundheitsstein Rank 1?</div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/dwarf.png" alt="Hololo">
@@ -191,6 +833,14 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-jaeger">Kodokiller</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Königsbär">
+        <div class="member-info"><div class="member-name c-druide">Königsbär</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Korsawe">
+        <div class="member-info"><div class="member-name c-magier">Korsawe</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/gnome.png" alt="Kruzux">
         <div class="member-info"><div class="member-name c-hexer">Kruzux</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
       </div>
@@ -213,6 +863,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
       <div class="member-row">
         <img src="../media/profile/nightelf.png" alt="Luneria">
         <div class="member-info"><div class="member-name c-druide">Luneria</div><div class="member-class">Druide</div><div class="member-quote">Eule AoE Taunt</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Lyma">
+        <div class="member-info"><div class="member-name c-krieger">Lyma</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/gnome.png" alt="Maoux">
@@ -283,6 +937,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-jaeger">Penjadri</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/human.png" alt="Phyros">
+        <div class="member-info"><div class="member-name c-paladin">Phyros</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/human.png" alt="Pipa">
         <div class="member-info"><div class="member-name c-paladin">Pipa</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
       </div>
@@ -291,12 +949,20 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-krieger">Poggenburg</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/human.png" alt="Raghnall">
+        <div class="member-info"><div class="member-name c-hexer">Raghnall</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/gnome.png" alt="Raigor">
         <div class="member-info"><div class="member-name c-hexer">Raigor</div><div class="member-class">Hexenmeister</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/nightelf.png" alt="Razyell">
         <div class="member-info"><div class="member-name c-druide">Razyell</div><div class="member-class">Druide</div><div class="member-quote">Unglaublich schneller Baum</div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Riyara">
+        <div class="member-info"><div class="member-name c-paladin">Riyara</div><div class="member-class">Paladin</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/human.png" alt="Rodranon">
@@ -323,6 +989,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-magier">Schury</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Scooplife">
+        <div class="member-info"><div class="member-name c-druide">Scooplife</div><div class="member-class">Druide</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/human.png" alt="Scyze">
         <div class="member-info"><div class="member-name c-magier">Scyze</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
       </div>
@@ -347,8 +1017,16 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-krieger">Sie</div><div class="member-class">Krieger</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/nightelf.png" alt="Sionidos">
+        <div class="member-info"><div class="member-name c-jaeger">Sionidos</div><div class="member-class">Jäger</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/dwarf.png" alt="Sirion">
         <div class="member-info"><div class="member-name c-priester">Sirion</div><div class="member-class">Priester</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
+        <img src="../media/profile/human.png" alt="Swarles">
+        <div class="member-info"><div class="member-name c-schurke">Swarles</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
         <img src="../media/profile/human.png" alt="Synkuxia">
@@ -391,6 +1069,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-schurke">Ventilator</div><div class="member-class">Schurke</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/gnome.png" alt="Verlisstorm">
+        <div class="member-info"><div class="member-name c-magier">Verlisstorm</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/walt.png" alt="Walt">
         <div class="member-info"><div class="member-name c-magier">Walt</div><div class="member-class">Magier</div><div class="member-quote"></div></div>
       </div>
@@ -431,6 +1113,10 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
         <div class="member-info"><div class="member-name c-schamane">Zackery</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
       </div>
       <div class="member-row">
+        <img src="../media/profile/draenai.jpg" alt="Zwongo">
+        <div class="member-info"><div class="member-name c-schamane">Zwongo</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
+      </div>
+      <div class="member-row">
         <img src="../media/profile/draenai.jpg" alt="Zyler">
         <div class="member-info"><div class="member-name c-schamane">Zyler</div><div class="member-class">Schamane</div><div class="member-quote"></div></div>
       </div>
@@ -438,11 +1124,13 @@ footer{text-align:center;padding:18px 16px 34px}.loading-tip{max-width:620px;mar
   </div>
 </div>
 <footer>
-  <div class="loading-tip"><b>Wusstest du schon?</b> Unsere Gilde hat mehr Verspätungen als Erfolge — und das will bei uns etwas heißen.</div>
-  <div class="copyright">© Vom Kreuzenden Brennzug — Alle Rechte vorbehalten.<br>
-  World of Warcraft® ist eine eingetragene Marke von Blizzard Entertainment. Diese Seite ist eine inoffizielle Fanseite.<br>
-  Best viewed at 1024×768 · Webmaster Partah mit H · Besucher: 000471 · <a href="../index.html">Zur Gildenhalle</a></div>
-</footer>
+    <div class="loading-tip"><b>Wusstest du schon?</b> Unsere Gilde hat mehr Verspätungen als Erfolge &mdash; und das will bei uns etwas heißen.</div>
+    <div class="copyright">
+      © Vom Kreuzenden Brennzug &mdash; Alle Rechte vorbehalten.<br>
+      World of Warcraft® ist eine eingetragene Marke von Blizzard Entertainment. Diese Seite ist eine inoffizielle Fanseite.<br>
+      <span class="old-school">Best viewed at 1024×768 · Webmaster Partah mit H · Besucher: 000471 · <a href="#">Nach oben</a></span>
+    </div>
+  </footer>
 <div class="plb" id="plb" hidden role="dialog" aria-modal="true" aria-label="Profilbild">
   <div class="plb-top"><span id="plb-count"></span><button class="plb-btn plb-close" id="plb-close" aria-label="Schließen">✕</button></div>
   <button class="plb-btn plb-nav plb-prev" id="plb-prev" aria-label="Vorheriges Profilbild">‹</button>
@@ -493,6 +1181,17 @@ document.addEventListener('keydown',function(e){
 var tx=null;
 box.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 box.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>60)step(dx<0?1:-1)});
+})();
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-member-count]');if(!els.length)return;
+  var url=null;
+  function count(doc){var s={};[].forEach.call(doc.querySelectorAll('.member-list .member-name'),function(n){s[n.textContent.trim().toLowerCase()]=1});return Object.keys(s).length}
+  function set(n){if(n>0)[].forEach.call(els,function(e){e.textContent=n})}
+  if(document.querySelector('.member-list')){set(count(document));return}
+  if(!window.fetch)return;
+  fetch(url).then(function(r){return r.ok?r.text():Promise.reject()}).then(function(t){set(count(new DOMParser().parseFromString(t,'text/html')))}).catch(function(){});
 })();
 </script>
 </body>
