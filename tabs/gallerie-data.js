@@ -1,61 +1,5 @@
 window.GALLERY_DATA = [
  {
-  "file": "Screenshot 2020-12-20 23.24.21.png",
-  "date": "2026-10-07T13:02:32"
- },
- {
-  "file": "Screenshot 2020-05-09 20.03.10.jpg",
-  "date": "2026-10-07T13:02:09"
- },
- {
-  "file": "Screenshot 2020-05-06 11.59.05.jpg",
-  "date": "2026-10-07T13:02:01"
- },
- {
-  "file": "Screenshot 2020-04-15 01.37.31.jpg",
-  "date": "2026-10-07T13:01:55"
- },
- {
-  "file": "Screenshot 2020-03-07 20.31.12.jpg",
-  "date": "2026-10-07T13:01:02"
- },
- {
-  "file": "Screenshot 2020-02-16 22.56.38.jpg",
-  "date": "2026-10-07T13:00:53"
- },
- {
-  "file": "Screenshot 2020-01-25 21.06.48.jpg",
-  "date": "2026-10-07T13:00:46"
- },
- {
-  "file": "Screenshot 2020-01-04 02.27.40.jpg",
-  "date": "2026-10-07T13:00:38"
- },
- {
-  "file": "Screenshot 2019-11-17 18.38.24.jpg",
-  "date": "2026-10-07T13:00:32"
- },
- {
-  "file": "Screenshot 2019-11-07 21.57.19.jpg",
-  "date": "2026-10-07T13:00:17"
- },
- {
-  "file": "Screenshot 2019-11-07 21.40.05.jpg",
-  "date": "2026-10-07T13:00:10"
- },
- {
-  "file": "Screenshot 2019-11-07 21.13.09.jpg",
-  "date": "2026-10-07T13:00:06"
- },
- {
-  "file": "Screenshot 2019-10-31 20.51.22.jpg",
-  "date": "2026-10-07T13:00:01"
- },
- {
-  "file": "Screenshot 2019-10-13 23.11.30.jpg",
-  "date": "2026-10-07T12:59:56"
- },
- {
   "file": "WoWScrnShot_121723_214722.jpg",
   "date": "2023-12-17T21:47:22"
  },
@@ -118,6 +62,10 @@ window.GALLERY_DATA = [
  {
   "file": "WoWScrnShot_050221_200057.jpg",
   "date": "2021-05-02T20:00:57"
+ },
+ {
+  "file": "WoWScrnShot_041021_040224.jpg",
+  "date": "2021-04-10T04:02:24"
  },
  {
   "file": "WoWScrnShot_041021_040223.png",
@@ -202,6 +150,10 @@ window.GALLERY_DATA = [
  {
   "file": "WoWScrnShot_122120_001053.jpg",
   "date": "2020-12-21T00:10:53"
+ },
+ {
+  "file": "Screenshot 2020-12-20 23.24.21.png",
+  "date": "2020-12-20T23:24:21"
  },
  {
   "file": "WoWScrnShot_122020_232349.jpg",
@@ -344,6 +296,14 @@ window.GALLERY_DATA = [
   "date": "2020-05-15T00:33:09"
  },
  {
+  "file": "Screenshot 2020-05-09 20.03.10.jpg",
+  "date": "2020-05-09T20:03:10"
+ },
+ {
+  "file": "Screenshot 2020-05-06 11.59.05.jpg",
+  "date": "2020-05-06T11:59:05"
+ },
+ {
   "file": "WoWScrnShot_050620_012506.jpg",
   "date": "2020-05-06T01:25:06"
  },
@@ -392,6 +352,10 @@ window.GALLERY_DATA = [
   "date": "2020-04-15T01:55:48"
  },
  {
+  "file": "Screenshot 2020-04-15 01.37.31.jpg",
+  "date": "2020-04-15T01:37:31"
+ },
+ {
   "file": "WoWScrnShot_041520_012927.jpg",
   "date": "2020-04-15T01:29:27"
  },
@@ -420,6 +384,10 @@ window.GALLERY_DATA = [
   "date": "2020-03-23T21:51:47"
  },
  {
+  "file": "Screenshot 2020-03-07 20.31.12.jpg",
+  "date": "2020-03-07T20:31:12"
+ },
+ {
   "file": "WoWScrnShot_030420_194057.jpg",
   "date": "2020-03-04T19:40:57"
  },
@@ -434,6 +402,10 @@ window.GALLERY_DATA = [
  {
   "file": "WoWScrnShot_022320_215147.jpg",
   "date": "2020-02-23T21:51:47"
+ },
+ {
+  "file": "Screenshot 2020-02-16 22.56.38.jpg",
+  "date": "2020-02-16T22:56:38"
  },
  {
   "file": "WoWScrnShot_021620_225636.jpg",
@@ -472,6 +444,14 @@ window.GALLERY_DATA = [
   "date": "2020-01-26T00:53:20"
  },
  {
+  "file": "Screenshot 2020-01-25 21.06.48.jpg",
+  "date": "2020-01-25T21:06:48"
+ },
+ {
+  "file": "Screenshot 2020-01-04 02.27.40.jpg",
+  "date": "2020-01-04T02:27:40"
+ },
+ {
   "file": "WoWScrnShot_010420_022729.jpg",
   "date": "2020-01-04T02:27:29"
  },
@@ -496,6 +476,10 @@ window.GALLERY_DATA = [
   "date": "2019-12-01T18:39:58"
  },
  {
+  "file": "Screenshot 2019-11-17 18.38.24.jpg",
+  "date": "2019-11-17T18:38:24"
+ },
+ {
   "file": "WoWScrnShot_111019_221225.jpg",
   "date": "2019-11-10T22:12:25"
  },
@@ -504,11 +488,31 @@ window.GALLERY_DATA = [
   "date": "2019-11-07T22:01:57"
  },
  {
+  "file": "Screenshot 2019-11-07 21.57.19.jpg",
+  "date": "2019-11-07T21:57:19"
+ },
+ {
   "file": "WoWScrnShot_110719_214008.jpg",
   "date": "2019-11-07T21:40:08"
  },
  {
+  "file": "Screenshot 2019-11-07 21.40.05.jpg",
+  "date": "2019-11-07T21:40:05"
+ },
+ {
+  "file": "Screenshot 2019-11-07 21.13.09.jpg",
+  "date": "2019-11-07T21:13:09"
+ },
+ {
+  "file": "Screenshot 2019-10-31 20.51.22.jpg",
+  "date": "2019-10-31T20:51:22"
+ },
+ {
   "file": "WoWScrnShot_102719_185135.jpg",
   "date": "2019-10-27T18:51:35"
+ },
+ {
+  "file": "Screenshot 2019-10-13 23.11.30.jpg",
+  "date": "2019-10-13T23:11:30"
  }
 ];
