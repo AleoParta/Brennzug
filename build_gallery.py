@@ -75,7 +75,7 @@ def exif_date(path):
 def file_date(path):
     """Das ältere von Erstellungs- und Änderungsdatum.
     Beim Kopieren bekommt eine Datei ein neues Erstellungsdatum, das Änderungsdatum
-    bleibt aber meist das Original. Deshalb nimmt man das frühere der beiden."""
+    bleibt aber meist das Original."""
     st = path.stat()
     ts = [st.st_mtime]
     if getattr(st, "st_birthtime", None):      # macOS

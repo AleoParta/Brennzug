@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>&lt;Vom Kreuzenden Brennzug&gt;</title>
 <style>
   :root {
@@ -573,6 +574,22 @@
   @media (max-width: 480px) { .cd-box { min-width: 62px; } .cd-num { font-size: 26px; } }
 
   .nav a.active { color: #fff; filter: brightness(1.3); box-shadow: inset 0 2px 5px rgba(0,0,0,0.6), 0 0 0 1px var(--gold-bright); }
+
+  /* Gildenvideo */
+  .video-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .video-pick { padding: 5px 12px; font-family: inherit; font-size: 12px; font-weight: bold; color: var(--text); background: #1a1006; border: 1px solid var(--gold-dark); border-radius: 3px; cursor: pointer; text-align: left; }
+  .video-pick:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+  .video-pick:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+  .video-pick.active { background: linear-gradient(180deg, #a52323, #6e1010 48%, #4a0808 52%, #6a1212); color: #ffd100; border-color: var(--gold); text-shadow: 1px 1px #000; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; width: 100%; border: 2px solid var(--gold-dark); background: #000; box-shadow: 0 0 0 1px #000, 0 4px 14px rgba(0,0,0,0.5); overflow: hidden; }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-card { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 0; border: 0; cursor: pointer; font-family: inherit; color: var(--gold-bright); background: radial-gradient(ellipse at center, #4a2a14 0%, #1a1006 75%); }
+  .video-card:hover .video-play, .video-card:focus-visible .video-play { transform: scale(1.1); background: #d01f1f; }
+  .video-card:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: -4px; }
+  .video-play { width: 68px; height: 68px; border-radius: 50%; background: #a52323; border: 3px solid var(--gold); box-shadow: 0 3px 10px rgba(0,0,0,0.6); position: relative; transition: transform .15s, background .15s; }
+  .video-play::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%); border-style: solid; border-width: 13px 0 13px 22px; border-color: transparent transparent transparent #fff; }
+  .video-title { font-size: 20px; font-weight: bold; letter-spacing: 1px; text-shadow: 0 2px 0 #000; }
+  .video-note { margin: 10px 0 0; font-size: 11.5px; color: var(--text-dim2); line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -686,13 +703,20 @@
     </div>
 
     <div class="cols">
-      <div class="panel" id="regeln" style="margin-top:0;">
-        <h2><span class="icon">📜</span>Gildenregeln</h2>
-        <div class="quest"><span class="quest-tag">01</span><h4>Respekt</h4><p>Wir behandeln Gildenmitglieder und Mitspieler respektvoll. Streit wird nicht im Raidchat ausgetragen.</p></div>
-        <div class="quest"><span class="quest-tag">02</span><h4>Raidbereitschaft</h4><p>Zu Raidbeginn sind Charakter, Ausrüstung, Verzauberungen und Verbrauchsgüter vorbereitet.</p></div>
-        <div class="quest"><span class="quest-tag">03</span><h4>TeamSpeak</h4><p>Bei Raids ist TeamSpeak Pflicht. Wer nicht sprechen kann, sollte wenigstens zuhören können.</p></div>
-        <div class="quest"><span class="quest-tag">04</span><h4>Loot</h4><p>Loot wird nach vorher festgelegten Regeln verteilt. Diskussionen über einzelne Gegenstände bitte nach dem Boss und nicht während des Pulls.</p></div>
-        <div class="quest"><span class="quest-tag">05</span><h4>Ulf</h4><p>Ulf darf pullen. Ob er pullen sollte, ist eine andere Frage.</p></div>
+      <div class="panel" id="video" style="margin-top:0;">
+        <h2><span class="icon">🎬</span>Gildenvideos</h2>
+        <div class="video-list" role="group" aria-label="Video auswählen">
+          <button type="button" class="video-pick active" data-id="uRVTaeTLDro" aria-pressed="true">Cho Cho</button>
+          <button type="button" class="video-pick" data-id="ISaoO_zgVFs" aria-pressed="false">SecretGolemaggStrats.docx</button>
+          <button type="button" class="video-pick" data-id="yecgO9OigVE" aria-pressed="false">Silithus Event</button>
+        </div>
+        <div class="video-frame" id="yt-frame">
+          <button type="button" class="video-card" id="yt-card" aria-label="Video „Cho Cho“ abspielen">
+            <span class="video-play" aria-hidden="true"></span>
+            <span class="video-title" id="yt-title">Cho Cho</span>
+          </button>
+        </div>
+        <p class="video-note"><a id="yt-link" href="https://www.youtube.com/watch?v=uRVTaeTLDro" target="_blank" rel="noopener noreferrer">Cho Cho auf YouTube ansehen ↗</a><br>Beim Abspielen werden Daten von YouTube geladen.</p>
       </div>
 
       <div class="panel" id="musik" style="margin-top:0;">
@@ -747,6 +771,15 @@
           — Laeanaia, Protokollant
         </div>
       </div>
+    </div>
+
+    <div class="panel" id="regeln">
+      <h2><span class="icon">📜</span>Gildenregeln</h2>
+      <div class="quest"><span class="quest-tag">01</span><h4>Respekt</h4><p>Wir behandeln Gildenmitglieder und Mitspieler respektvoll. Streit wird nicht im Raidchat ausgetragen.</p></div>
+      <div class="quest"><span class="quest-tag">02</span><h4>Raidbereitschaft</h4><p>Zu Raidbeginn sind Charakter, Ausrüstung, Verzauberungen und Verbrauchsgüter vorbereitet.</p></div>
+      <div class="quest"><span class="quest-tag">03</span><h4>TeamSpeak</h4><p>Bei Raids ist TeamSpeak Pflicht. Wer nicht sprechen kann, sollte wenigstens zuhören können.</p></div>
+      <div class="quest"><span class="quest-tag">04</span><h4>Loot</h4><p>Loot wird nach vorher festgelegten Regeln verteilt. Diskussionen über einzelne Gegenstände bitte nach dem Boss und nicht während des Pulls.</p></div>
+      <div class="quest"><span class="quest-tag">05</span><h4>Ulf</h4><p>Ulf darf pullen. Ob er pullen sollte, ist eine andere Frage.</p></div>
     </div>
 
     <div class="cols">
@@ -851,6 +884,39 @@
   if(document.querySelector('.member-list')){set(count(document));return}
   if(!window.fetch)return;
   fetch(url).then(function(r){return r.ok?r.text():Promise.reject()}).then(function(t){set(count(new DOMParser().parseFromString(t,'text/html')))}).catch(function(){});
+})();
+</script>
+<script>
+(function(){
+  var VIDEOS={'uRVTaeTLDro':'Cho Cho', 'ISaoO_zgVFs':'SecretGolemaggStrats.docx', 'yecgO9OigVE':'Silithus Event'};
+  var cur='uRVTaeTLDro',frame=document.getElementById('yt-frame');if(!frame)return;
+  var picks=document.querySelectorAll('.video-pick');
+  function card(){
+    frame.textContent='';
+    var b=document.createElement('button');b.type='button';b.className='video-card';b.id='yt-card';
+    b.setAttribute('aria-label','Video \u201E'+VIDEOS[cur]+'\u201C abspielen');
+    var p=document.createElement('span');p.className='video-play';p.setAttribute('aria-hidden','true');
+    var t=document.createElement('span');t.className='video-title';t.id='yt-title';t.textContent=VIDEOS[cur];
+    b.appendChild(p);b.appendChild(t);b.addEventListener('click',play);frame.appendChild(b);
+  }
+  function play(){
+  var f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+cur+'?autoplay=1&rel=0';
+  f.title='Gildenvideo: '+VIDEOS[cur];
+  f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.referrerPolicy='strict-origin-when-cross-origin';
+  f.allowFullscreen=true;
+  frame.replaceChildren(f);
+}
+  [].forEach.call(picks,function(btn){
+    btn.addEventListener('click',function(){
+      cur=btn.dataset.id;
+      [].forEach.call(picks,function(x){var on=x===btn;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});
+      var a=document.getElementById('yt-link');a.href='https://www.youtube.com/watch?v='+cur;a.textContent=VIDEOS[cur]+' auf YouTube ansehen \u2197';
+      card();
+    });
+  });
+  document.getElementById('yt-card').addEventListener('click',play);
 })();
 </script>
 </body>
