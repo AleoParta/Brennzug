@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>&lt;Vom Kreuzenden Brennzug&gt; – Galerie</title>
+<link rel="icon" type="image/png" href="../media/gildenlogo.png">
+<link rel="apple-touch-icon" href="../media/gildenlogo.png">
 
 <style>
   :root {
@@ -640,7 +642,7 @@
     </div>
   </div>
 <div class="maxw">
-  <div class="panel"><h2>📸 Galerie</h2><p class="lede">Screenshots und die besten Momente der Gilde, geordnet nach den Meilensteinen von WoW Classic. Ein Klick auf einen Punkt der Zeitleiste springt zum Abschnitt, ein Klick auf ein Bild öffnet es in voller Größe.</p></div>
+  <div class="panel"><h2>📸 Galerie</h2><p class="lede">Screenshots und die besten Momente der Gilde, geordnet nach den Meilensteinen von WoW Classic bis WotLK. Ein Klick auf einen Punkt der Zeitleiste springt zum Abschnitt, ein Klick auf ein Bild öffnet es in voller Größe.</p></div>
   <div class="panel">
     <div class="gal-tools">
       <span id="gal-count"></span>
@@ -671,8 +673,8 @@ var PHASES=[
  {name:'ZG',start:'2020-04-15'},
  {name:'AQ',start:'2020-07-28'},
  {name:'Naxxramas',start:'2020-12-03'},
- {name:'TBC',start:'2021-06-01'}
-// {name:'WOTLK',start:'2022-09-26'}
+ {name:'TBC',start:'2021-06-01'},
+ {name:'WOTLK',start:'2022-09-26'}
 ];
 var PRE={name:'Davor / ohne Zuordnung',start:null};
 var data=(window.GALLERY_DATA||[]).slice(), items=[], cur=-1, lastFocus=null, active=null;
@@ -732,7 +734,7 @@ function render(){
       var idx=items.length;it._phase=gr.p.name;items.push(it);
       var b=document.createElement('button');b.type='button';b.className='gal-item';
       b.setAttribute('aria-label','Bild vom '+fmtDate(it.date)+' öffnen');
-      var im=document.createElement('img');im.loading='lazy';im.src=BASE+encodeURIComponent(it.file);im.alt=it.file;
+      var im=document.createElement('img');im.loading='lazy';im.decoding='async';im.src=BASE+encodeURIComponent(it.file);im.alt=it.file;
       var cap=document.createElement('div');cap.className='gal-cap';
       var d=document.createElement('span');d.textContent=fmtDate(it.date);
       cap.appendChild(d);b.appendChild(im);b.appendChild(cap);
@@ -769,7 +771,7 @@ render();
 })();
 </script>
 <footer>
-    <div class="loading-tip"><b>Wusstest du schon?</b> Unsere Gilde hat mehr Verspätungen als Erfolge &mdash; und das will bei uns etwas heißen.</div>
+    <div class="loading-tip"><b>Wusstest du schon?</b> <span id="fact-text">Unsere Gilde hat mehr Verspätungen als Erfolge &mdash; und das will bei uns etwas heißen.</span></div>
     <div class="copyright">
       © Vom Kreuzenden Brennzug &mdash; Alle Rechte vorbehalten.<br>
       World of Warcraft® ist eine eingetragene Marke von Blizzard Entertainment. Diese Seite ist eine inoffizielle Fanseite.<br>
@@ -787,5 +789,6 @@ render();
   fetch(url).then(function(r){return r.ok?r.text():Promise.reject()}).then(function(t){set(count(new DOMParser().parseFromString(t,'text/html')))}).catch(function(){});
 })();
 </script>
+<script src="../tipps.js"></script>
 </body>
 </html>

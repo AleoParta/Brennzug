@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>&lt;Vom Kreuzenden Brennzug&gt;</title>
+<link rel="icon" type="image/png" href="media/gildenlogo.png">
+<link rel="apple-touch-icon" href="media/gildenlogo.png">
 <style>
   :root {
     --gold: #e8c876;
@@ -532,13 +534,13 @@
     box-shadow: inset 0 0 6px #000, 0 0 0 1px #000;
   }
   .raidbar .fill {
-    height: 100%; width: 66.667%;
+    height: 100%; width: 40%;
     background: linear-gradient(180deg, #ff9a3c, #e2551a 45%, #a82a08 55%, #7a1c04);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
   }
   .raidbar .seg {
     position: absolute; inset: 0;
-    background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12 - 2px), rgba(0,0,0,0.7) calc(100% / 12));
+    background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / var(--segs, 12) - 2px), rgba(0,0,0,0.7) calc(100% / var(--segs, 12) - 2px), rgba(0,0,0,0.7) calc(100% / var(--segs, 12)));
   }
   .raidbar .label {
     position: absolute; inset: 0;
@@ -590,6 +592,17 @@
   .video-play::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%); border-style: solid; border-width: 13px 0 13px 22px; border-color: transparent transparent transparent #fff; }
   .video-title { font-size: 20px; font-weight: bold; letter-spacing: 1px; text-shadow: 0 2px 0 #000; }
   .video-note { margin: 10px 0 0; font-size: 11.5px; color: var(--text-dim2); line-height: 1.6; }
+
+  /* Raidprotokolle (scrollbar) */
+  .protocol-scroll { max-height: 620px; overflow-y: auto; padding-right: 8px; overscroll-behavior: contain; scrollbar-color: var(--gold-dark) #181006; }
+  .protocol-scroll:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+  .protocol + .protocol { margin-top: 18px; }
+  .proto-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 12px; }
+  .proto-hint { flex: 1 0 100%; font-size: 11.5px; font-style: italic; color: var(--text-dim2); }
+  .proto-pick { padding: 4px 10px; font-family: inherit; font-size: 12px; font-weight: bold; color: var(--text); background: #1a1006; border: 1px solid var(--gold-dark); border-radius: 3px; cursor: pointer; }
+  .proto-pick:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+  .proto-pick:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+  .proto-pick.active { background: linear-gradient(180deg, #a52323, #6e1010 48%, #4a0808 52%, #6a1212); color: #ffd100; border-color: var(--gold); text-shadow: 1px 1px #000; }
 </style>
 </head>
 <body>
@@ -640,16 +653,16 @@
     </div>
 
     <div class="panel" id="progress">
-      <h2><span class="icon">🔥</span>Raid-Fortschritt &mdash; Molten Core</h2>
-      <div class="raidbar" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="8" aria-label="Molten Core Fortschritt">
+      <h2><span class="icon">🔥</span>Raid-Fortschritt &mdash; Hyjalgipfel</h2>
+      <div class="raidbar" style="--segs:5" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="2" aria-label="Hyjalgipfel Fortschritt">
         <div class="fill"></div>
         <div class="seg"></div>
-        <div class="label">8 / 12 Bosse besiegt</div>
+        <div class="label">2 / 5 Bosse besiegt</div>
       </div>
-      <div class="raid-caption"><span>Molten Core</span><span>Aktueller Boss: <b>Golemagg</b></span></div>
+      <div class="raid-caption"><span>Schlacht um den Berg Hyjal</span><span>Aktueller Boss: <b>Kaz'rogal</b></span></div>
     </div>
 
-    <div class="ticker"><b>Ladebildschirm-Tipp:</b> Ein guter Raid beginnt mit einem guten Plan. Ein sehr guter Raid beginnt damit, dass alle im TeamSpeak sind.</div>
+    <div class="ticker"><b>Ladebildschirm-Tipp:</b> <span id="tip-text">Ein guter Raid beginnt mit einem guten Plan. Ein sehr guter Raid beginnt damit, dass alle im Discord sind.</span></div>
 
     <div class="panel" id="fahrplan">
       <h2><span class="icon">🚆</span>Fahrplan &mdash; Raidzeiten</h2>
@@ -676,7 +689,7 @@
         <div class="news-item">
           <div class="news-date">22.09.2010 · Gildenleitung</div>
           <div class="news-title">Raidplan für die kommende Woche</div>
-          <div class="news-text">Die Raids wurden eingetragen. Bitte mindestens zehn Minuten vor Beginn im TeamSpeak erscheinen. Pünktlichkeit erleichtert die Organisation erheblich.</div>
+          <div class="news-text">Die Raids wurden eingetragen. Bitte mindestens zehn Minuten vor Beginn im Discord erscheinen. Pünktlichkeit erleichtert die Organisation erheblich.</div>
         </div>
         <div class="news-item">
           <div class="news-date">21.09.2010 ·  Laeaina</div>
@@ -691,14 +704,14 @@
         <div class="old-school"><span class="construction">Weitere News folgen...</span></div>
       </div>
 
-      <div class="panel" id="ts3" style="margin-top:0;">
-        <h2><span class="icon">🎧</span>TeamSpeak 3</h2>
-        <div class="ts-row"><span>Server</span><span>vkb-raid.de</span></div>
+      <div class="panel" id="discord" style="margin-top:0;">
+        <h2><span class="icon">🎧</span>Discord</h2>
+        <div class="ts-row"><span>Server</span><span><a href="https://discord.gg/agCuQ3w" target="_blank" rel="noopener noreferrer">discord.gg/agCuQ3w</a></span></div>
         <div class="ts-row"><span>Status</span><span class="ts-online">● Online</span></div>
-        <div class="ts-row"><span>Gildenchannel</span><span>Vom Kreuzenden Brennzug</span></div>
-        <div class="ts-row"><span>Benutzer</span><span>12 / 50</span></div>
+        <div class="ts-row"><span>Sprachkanal</span><span>Vom Kreuzenden Brennzug</span></div>
+        <div class="ts-row"><span>Benutzer</span><span>12 online</span></div>
         <div class="ts-row"><span>Aktuell</span><span>Parta, Walt, Ulf + 9</span></div>
-        <p class="old-school">TS3 empfohlen · Headset erforderlich · Mikrofon bitte vor Raidbeginn testen</p>
+        <p class="old-school">Discord empfohlen · Headset erforderlich · Mikrofon bitte vor Raidbeginn testen</p>
       </div>
     </div>
 
@@ -706,7 +719,7 @@
       <div class="panel" id="video" style="margin-top:0;">
         <h2><span class="icon">🎬</span>Gildenvideos</h2>
         <div class="video-list" role="group" aria-label="Video auswählen">
-          <button type="button" class="video-pick active" data-id="uRVTaeTLDro" aria-pressed="true">Cho Cho</button>
+          <button type="button" class="video-pick active" data-id="uRVTaeTLDro" aria-pressed="true">Choo Choo</button>
           <button type="button" class="video-pick" data-id="ISaoO_zgVFs" aria-pressed="false">SecretGolemaggStrats.docx</button>
           <button type="button" class="video-pick" data-id="yecgO9OigVE" aria-pressed="false">Silithus Event</button>
         </div>
@@ -749,27 +762,181 @@
     </div>
 
     <div class="panel" id="protokoll">
-      <h2><span class="icon">✎</span>Raidprotokoll</h2>
-      <div class="protocol">
-        <div class="protocol-head">
-          <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #017 — Molten Core</div>
-          <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde</div>
+      <h2><span class="icon">✎</span>Raidprotokolle</h2>
+      <div class="proto-nav" role="group" aria-label="Protokoll auswählen">
+        <span class="proto-hint">Aktuell: #001 · Scrolle nach unten für ältere Protokolle</span>
+        <button type="button" class="proto-pick" data-n="1">#001</button><button type="button" class="proto-pick" data-n="2">#002</button><button type="button" class="proto-pick" data-n="3">#003</button><button type="button" class="proto-pick" data-n="4">#004</button><button type="button" class="proto-pick" data-n="5">#005</button><button type="button" class="proto-pick" data-n="6">#006</button><button type="button" class="proto-pick" data-n="7">#007</button><button type="button" class="proto-pick" data-n="8">#008</button>
+      </div>
+      <div class="protocol-scroll" id="protocol-scroll" tabindex="0" role="region" aria-label="Raidprotokolle, scrollbar">
+        <div class="protocol" id="prot-1">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #001 — Molten Core</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Mo</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:07 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>37 von 40 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Trashgruppen bereinigt · mehrere Bosse erfolgreich besiegt</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Ein Pull erfolgte, bevor alle Spieler „bereit“ gemeldet hatten.</td></tr>
+            <tr><td>Wipes</td><td>7 · davon mindestens einer „so nicht geplant“</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · allgemeine Zufriedenheit festgestellt</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Ein weiterer erfolgreicher Abend liegt hinter uns. Trotz kleinerer Unstimmigkeiten und einiger taktischer Abweichungen konnten wir unsere Ziele erreichen. Ich möchte mich bei allen Teilnehmern für die gute Zusammenarbeit bedanken. Denkt bitte daran, beim nächsten Mal etwas früher zu erscheinen, damit wir pünktlich beginnen können. Ich freue mich bereits auf den nächsten gemeinsamen Raid und bin zuversichtlich, dass wir als Gilde weiterhin Fortschritte machen werden. In diesem Sinne: Gute Nacht und bis zum nächsten Raid. Möge der Loot mit euch sein.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
         </div>
-        <table class="protocol-table">
-          <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
-          <tr><td>Beginn</td><td>18:00 Uhr · 18:07 Uhr tatsächlicher Raidstart</td></tr>
-          <tr><td>Anwesend</td><td>37 von 40 angemeldeten Spielern</td></tr>
-          <tr><td>Fortschritt</td><td>Trashgruppen bereinigt · mehrere Bosse erfolgreich besiegt</td></tr>
-          <tr><td>Besondere Vorkommnisse</td><td>Ein Pull erfolgte, bevor alle Spieler „bereit“ gemeldet hatten.</td></tr>
-          <tr><td>Wipes</td><td>7 · davon mindestens einer „so nicht geplant“</td></tr>
-          <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung</td></tr>
-          <tr><td>Ende</td><td>22:03 Uhr · allgemeine Zufriedenheit festgestellt</td></tr>
-        </table>
-        <div class="Scenx-ending">
-          Schlusswort des Protokollanten:<br><br>
-          „Ein weiterer erfolgreicher Abend liegt hinter uns. Trotz kleinerer Unstimmigkeiten und einiger taktischer Abweichungen konnten wir unsere Ziele erreichen. Ich möchte mich bei allen Teilnehmern für die gute Zusammenarbeit bedanken. Denkt bitte daran, beim nächsten Mal etwas früher zu erscheinen, damit wir pünktlich beginnen können. Ich freue mich bereits auf den nächsten gemeinsamen Raid und bin zuversichtlich, dass wir als Gilde weiterhin Fortschritte machen werden. In diesem Sinne: Gute Nacht und bis zum nächsten Raid. Möge der Loot mit euch sein.“<br><br>
-          — Laeanaia, Protokollant
+        <div class="protocol" id="prot-2">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #002 — Pechschwingenhort (BWL)</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Di</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:12 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>38 von 40 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Razorgore, Vaelastrasz, Brutwächter Dreschbringer und das Drachentrio besiegt · Chromaggus nach Wipes erledigt · Nefarian steht noch aus</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Bei Razorgore wurde die Kontrolle über die Kugel mehrfach „sehr kreativ“ interpretiert.</td></tr>
+            <tr><td>Wipes</td><td>5 · davon 3 bei Chromaggus, der Rest war Razorgore</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · Diskussion über Drachenschuppen auf nach dem Raid vertagt</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · Nefarian bleibt Thema der kommenden Woche</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Der Pechschwingenhort hat uns einiges abverlangt, vor allem Geduld. Mein Dank gilt allen, die auch nach dem dritten Chromaggus-Versuch noch Verbrauchsgüter dabei hatten. Für Nefarian bitte Feuerresistenz prüfen und nicht erst im Kampf bemerken, dass sie fehlt.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
         </div>
+        <div class="protocol" id="prot-3">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #003 — Zul'Gurub (ZG)</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Fr</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:04 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>19 von 20 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Hohepriester Venoxis, Mar'li, Thekal, Arlokk, Mandokir und Jin'do besiegt · Hakkar am Ende des Abends erlegt</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Bei Blutfürst Mandokir wurde die Wiederbelebungsliste nach Ulfs Pull deutlich erweitert.</td></tr>
+            <tr><td>Wipes</td><td>4 · davon 2 durch Mandokirs Blick</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · Münzen und Bijous nach Los</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · Hakkar besiegt, Blutplage zum Glück nicht in die Hauptstädte getragen</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Zwanzig Mann, ein Dschungel und erstaunlich wenig Beschwerden. Ich halte fest, dass Hakkar dieses Mal tatsächlich fiel und die Blutplage in der Raidgruppe blieb. Das ist ein Fortschritt, den wir uns im Protokoll gerne merken.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <div class="protocol" id="prot-4">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #004 — Ruinen von Ahn'Qiraj (AQ20)</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: So</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:09 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>18 von 20 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Kurinnaxx, General Rajaxx, Moam, Buru und Ayamiss besiegt · Ossirian der Narbenlose liegt</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Beim Kampf gegen Buru wurde das Wort „Ei“ im Raidchat ungewöhnlich oft verwendet.</td></tr>
+            <tr><td>Wipes</td><td>4 · davon 1 wegen einer Welle, die niemand kommen sah</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · Skarabäus-Bijous nach Rolls</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · sämtliche Bosse der Ruinen erledigt</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Die Ruinen sind kleiner als vermutet, aber nicht kleiner als unsere Probleme. Ossirian wurde dank sauberer Kristallarbeit erlegt. Ich bitte darum, die Kristallkunde auch im nächsten Raid zu behalten.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <div class="protocol" id="prot-5">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #005 — Tempel von Ahn'Qiraj (AQ40)</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Mo</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:15 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>36 von 40 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Der Prophet Skeram, die Käferfamilie, Sartura, Fankriss, Viscidus und Prinzessin Huhuran besiegt · Zwillingsimperatoren offen</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Beim Käfertrio wurde das Lied „Käfer“ aus dem Gildenradio als ausdrücklich motivationsfördernd gewertet. Viscidus kostete uns Zeit, Frostschaden und einen Teil der Nerven.</td></tr>
+            <tr><td>Wipes</td><td>9 · davon 4 bei Viscidus</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · zwei Streitfälle vor dem Raidleiter geklärt</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · Fortschritt bis Huhuran, Imperatoren am nächsten Termin</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Der Tempel verlangt mehr Vorbereitung, als einige von uns zugeben möchten. Bitte vor dem nächsten Termin die Naturresistenz-Ausrüstung prüfen. Wer Viscidus nicht rechtzeitig einfriert, friert im Zweifel selbst ein.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <div class="protocol" id="prot-6">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #006 — Naxxramas</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Di</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:03 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>39 von 40 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Spinnenviertel komplett besiegt · im Pestviertel Noth und Heigan der Unreine besiegt · Loatheb offen</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Der Tanz bei Heigan wurde teilweise als Freestyle ausgeführt.</td></tr>
+            <tr><td>Wipes</td><td>11 · davon 6 bei Heigan, vermutlich wegen der Tanzeinlagen</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · Fraktionswappenröcke wurden nicht verlost</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · Raid auf Wunsch der Gilde pünktlich beendet</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Naxxramas hat uns einiges beigebracht, vor allem Demut. Besonderer Dank gilt allen, die bei Heigan nicht nur geübt, sondern auch getroffen haben. Für Loatheb wird der Raidleiter einen Tanzkurs vorschlagen.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <div class="protocol" id="prot-7">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #007 — Karazhan</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: Fr</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:20 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>10 von 10 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Attumen der Jäger, Moroes, Mädchen der Tugend, Opernevent, Kurator, Terestian Illhoof und Schatten von Aran besiegt</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Das Opernevent wurde als Gesangsabend verstanden. Karaoke findet künftig außerhalb der Raidzeit statt. Außerdem wurde Livic in einer Trashpause schlafend auf dem Stuhl angetroffen und per Raidwarnung geweckt.</td></tr>
+            <tr><td>Wipes</td><td>6 · davon 1 „wegen Schlaf“, 1 wegen Gesang</td></tr>
+            <tr><td>Loot</td><td>Verteilung gemäß Gildenregelung · Umhang an Livic, nachdem er wach war</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · Aran zu Boden gebracht, Schach-Event beim nächsten Mal</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Zehn Spieler, ein Turm und viel zu viel Kultur. Ich bitte darum, die Opernaufführungen künftig als Boss zu betrachten und nicht als Bühne für Gesangseinlagen. Livic bitte vor dem nächsten Raid ausreichend schlafen. Möge der Loot mit uns sein.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <div class="protocol" id="prot-8">
+          <div class="protocol-head">
+            <div style="font-size:16px;color:var(--gold-bright);font-weight:bold;">Raidprotokoll #008 — Schlangenschrein &amp; Auge des Sturms (SSC/TK)</div>
+            <div style="font-size:10px;color:#6d5f47;">Verfasst von Laeanaia · Protokollant der Gilde · Raidtag: So</div>
+          </div>
+          <table class="protocol-table">
+            <tr><th>Punkt</th><th>Protokolleintrag</th></tr>
+            <tr><td>Beginn</td><td>18:00 Uhr geplant · 18:11 Uhr tatsächlicher Raidstart</td></tr>
+            <tr><td>Anwesend</td><td>24 von 25 angemeldeten Spielern</td></tr>
+            <tr><td>Fortschritt</td><td>Schlangenschrein bis Lady Vashj besiegt · im Auge Al'ar erlegt · Solarian und Kael'thas stehen noch aus</td></tr>
+            <tr><td>Besondere Vorkommnisse</td><td>Rohtbard blieb hinter dem Dunklen Portal hängen und wurde nach einer Rettungsmission per Raidchat zurückgeholt. Bei Lady Vashj verlief die Kernweitergabe in Phase 3 nicht nach Plan.</td></tr>
+            <tr><td>Wipes</td><td>14 · davon 7 bei Lady Vashj, drei davon wegen eines verlorenen Kerns</td></tr>
+            <tr><td>Loot</td><td>Asche von Al'ar an Nephiss · übrige Beute gemäß Gildenregelung</td></tr>
+            <tr><td>Ende</td><td>22:00 Uhr · allgemeine Erleichterung, Rohtbard wieder im Raid</td></tr>
+          </table>
+          <div class="scenx-ending">
+            Schlusswort des Protokollanten:<br><br>
+            „Ein langer, nasser und lehrreicher Abend. Wir danken Rohtbard für die Erkundung des Dunklen Portals und Nephiss für die Asche. Bei Lady Vashj bitte künftig die Kerne an den richtigen Spieler weitergeben, nicht an den nächstbesten.“<br><br>
+            — Laeanaia, Protokollant
+          </div>
+        </div>
+        <p class="old-school">Ende der Protokolle &mdash; ältere Einträge sind leider beim Umzug des Archivs verloren gegangen.</p>
       </div>
     </div>
 
@@ -777,7 +944,7 @@
       <h2><span class="icon">📜</span>Gildenregeln</h2>
       <div class="quest"><span class="quest-tag">01</span><h4>Respekt</h4><p>Wir behandeln Gildenmitglieder und Mitspieler respektvoll. Streit wird nicht im Raidchat ausgetragen.</p></div>
       <div class="quest"><span class="quest-tag">02</span><h4>Raidbereitschaft</h4><p>Zu Raidbeginn sind Charakter, Ausrüstung, Verzauberungen und Verbrauchsgüter vorbereitet.</p></div>
-      <div class="quest"><span class="quest-tag">03</span><h4>TeamSpeak</h4><p>Bei Raids ist TeamSpeak Pflicht. Wer nicht sprechen kann, sollte wenigstens zuhören können.</p></div>
+      <div class="quest"><span class="quest-tag">03</span><h4>Discord</h4><p>Bei Raids ist Discord Pflicht. Wer nicht sprechen kann, sollte wenigstens zuhören können.</p></div>
       <div class="quest"><span class="quest-tag">04</span><h4>Loot</h4><p>Loot wird nach vorher festgelegten Regeln verteilt. Diskussionen über einzelne Gegenstände bitte nach dem Boss und nicht während des Pulls.</p></div>
       <div class="quest"><span class="quest-tag">05</span><h4>Ulf</h4><p>Ulf darf pullen. Ob er pullen sollte, ist eine andere Frage.</p></div>
     </div>
@@ -786,12 +953,12 @@
       <div class="panel" id="counter" style="margin-top:0;">
         <h2><span class="icon">◉</span>Besucherzähler</h2>
         <p class="lede">Diese Seite wurde bereits von zahlreichen Besuchern aufgerufen.</p>
-        <div style="text-align:center;margin:14px 0;"><span class="counter">000471</span></div>
+        <div style="text-align:center;margin:14px 0;"><span class="counter" id="visitor-counter">000471</span></div>
         <div class="old-school">Sie sind Besucher Nr. 000471</div>
       </div>
       <div class="panel" style="margin-top:0;">
         <h2><span class="icon">ℹ</span>Webmaster</h2>
-        <p class="lede">Zuletzt aktualisiert: 22.09.2010</p>
+        <p class="lede">Zuletzt aktualisiert: 09.10.2026</p>
         <p class="old-school">Optimiert für 1024 × 768 · Firefox · Internet Explorer 8</p>
         <div class="old-school">Webmaster: Partah mit H · Kontakt · Gästebuch</div>
       </div>
@@ -843,14 +1010,51 @@
   </div>
 
   <footer>
-    <div class="loading-tip"><b>Wusstest du schon?</b> Unsere Gilde hat mehr Verspätungen als Erfolge &mdash; und das will bei uns etwas heißen.</div>
+    <div class="loading-tip"><b>Wusstest du schon?</b> <span id="fact-text">Unsere Gilde hat mehr Verspätungen als Erfolge &mdash; und das will bei uns etwas heißen.</span></div>
     <div class="copyright">
       © Vom Kreuzenden Brennzug &mdash; Alle Rechte vorbehalten.<br>
       World of Warcraft® ist eine eingetragene Marke von Blizzard Entertainment. Diese Seite ist eine inoffizielle Fanseite.<br>
-      <span class="old-school">Best viewed at 1024×768 · Webmaster Partah mit H · Besucher: 000471 · <a href="#gilde">Nach oben</a></span>
+      <span class="old-school">Best viewed at 1024×768 · Webmaster Partah mit H · Besucher: <span class="visitor-no">000471</span> · <a href="#gilde">Nach oben</a></span>
     </div>
   </footer>
 
+<script>
+(function(){
+  // Protokoll-Schnellwahl: scrollt im Protokollbereich zum gewählten Eintrag
+  var box=document.getElementById('protocol-scroll');if(!box)return;
+  var picks=document.querySelectorAll('.proto-pick');
+  function mark(n){[].forEach.call(picks,function(p){p.classList.toggle('active',p.dataset.n===String(n))})}
+  [].forEach.call(picks,function(btn){
+    btn.addEventListener('click',function(){
+      var el=document.getElementById('prot-'+btn.dataset.n);if(!el)return;
+      var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      box.scrollTo({top:el.offsetTop-box.offsetTop,behavior:reduce?'auto':'smooth'});
+      mark(btn.dataset.n);
+    });
+  });
+  var blocks=box.querySelectorAll('.protocol');
+  box.addEventListener('scroll',function(){
+    var top=box.scrollTop+box.offsetTop+20,cur=1;
+    [].forEach.call(blocks,function(b,i){if(b.offsetTop<=top)cur=i+1});
+    mark(cur);
+  },{passive:true});
+  mark(1);
+})();
+</script>
+<script src="tipps.js"></script>
+<script>
+(function(){
+  // Besucherzähler: zählt während des Besuchs laufend hoch
+  var n=471,main=document.getElementById('visitor-counter'),others=document.querySelectorAll('.visitor-no');
+  if(!main)return;
+  function pad(x){var s=String(x);while(s.length<6)s='0'+s;return s}
+  function render(){var v=pad(n);main.textContent=v;[].forEach.call(others,function(e){e.textContent=v})}
+  function next(){
+    setTimeout(function(){n+=1;render();next()},2000+Math.floor(Math.random()*6000));
+  }
+  render();next();
+})();
+</script>
 <script>
 (function(){
   // 4. November 2026, 15:00 Uhr PST (UTC-8) = 23:00 UTC
