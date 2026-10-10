@@ -28,16 +28,16 @@ window.GALLERY_DATA = [
   "date": "2022-08-08T19:56:16"
  },
  {
-  "file": "Screenshot 2022-08-02 20.51.22.webp",
-  "date": "2022-08-02T20:51:22"
- },
- {
   "file": "WoWScrnShot_052722_003743.webp",
   "date": "2022-05-27T00:37:43"
  },
  {
   "file": "WoWScrnShot_052222_222354.webp",
   "date": "2022-05-22T22:23:54"
+ },
+ {
+  "file": "Screenshot 2022-02-08 20.51.22.webp",
+  "date": "2022-02-08T20:51:22"
  },
  {
   "file": "WoWScrnShot_020622_202451.webp",
