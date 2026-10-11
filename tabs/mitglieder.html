@@ -594,13 +594,7 @@
 .click-hint{display:flex;align-items:center;gap:10px;margin:0 0 14px;padding:9px 14px;border:1px solid var(--gold);border-radius:4px;background:linear-gradient(90deg,rgba(232,200,118,.18),rgba(232,200,118,.05));color:var(--gold-bright);font-size:13px;line-height:1.4}
 .click-hint .ch-ico{flex:none;font-size:18px;animation:chnudge 1.4s ease-in-out 3}
 @keyframes chnudge{0%,100%{transform:scale(1)}50%{transform:scale(1.35) rotate(-8deg)}}
-.zoomwrap{position:relative;flex:none;display:block;width:44px;height:44px}
-.zoomwrap img{display:block}
-.zoomwrap .zb{position:absolute;right:-4px;bottom:-4px;width:19px;height:19px;display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1;background:rgba(10,6,3,.85);border:1px solid var(--gold);border-radius:50%;pointer-events:none;animation:zpulse 1.4s ease-in-out 3;transition:transform .15s,background .15s}
-.zoomwrap:hover .zb{transform:scale(1.2);background:var(--gold-dark)}
-@keyframes zpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4);background:var(--gold-dark);box-shadow:0 0 0 3px rgba(232,200,118,.35),0 0 8px rgba(232,200,118,.8)}}
-@media(prefers-reduced-motion:reduce){.click-hint .ch-ico,.zoomwrap .zb{animation:none}}
-
+@media(prefers-reduced-motion:reduce){.click-hint .ch-ico,
 </style>
 
 </head>
@@ -1143,11 +1137,6 @@
 <script>
 (function(){
 var $=function(id){return document.getElementById(id)};
-[].forEach.call(document.querySelectorAll('.member-row > img'),function(im){
-  var w=document.createElement('span');w.className='zoomwrap';
-  var b=document.createElement('span');b.className='zb';b.setAttribute('aria-hidden','true');b.textContent='🔍';
-  im.parentNode.insertBefore(w,im);w.appendChild(im);w.appendChild(b);
-});
 var box=$('plb'),big=$('plb-img'),list=[].slice.call(document.querySelectorAll('.member-list .member-row img')),
     all=[].slice.call(document.querySelectorAll('.member-row img,.featured img')),set=[],cur=0,last=null;
 function info(im){
